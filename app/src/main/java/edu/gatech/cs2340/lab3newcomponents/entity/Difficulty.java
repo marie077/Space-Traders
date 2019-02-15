@@ -6,13 +6,12 @@ package edu.gatech.cs2340.lab3newcomponents.entity;
  * This class represents the various school codes for registration
  */
 public enum Difficulty {
-    CS ("Computer Science", "CS"),
-    CM ("Computational Media", "CM"),
-    IE ("Industrial Engineering", "IE"),
-    EE ("Electrical Engineering", "EE"),
-    MATH ("Mathematics", "MATH"),
-    XX ("No Such School", "NULL"),
-    AR ("Architecture", "AR");
+    BE ("Beginner", "BE"),
+    EA ("Easy", "EA"),
+    NO ("Normal", "NO"),
+    HA ("Hard", "HA"),
+    IM ("Impossible", "IM");
+
 
     /** the full string representation of the course name */
     private final String name;
@@ -26,7 +25,7 @@ public enum Difficulty {
      * @param pname   full name of the course
      * @param pcode   letter code / abbreviation for the course
      */
-    SchoolCode(String pname, String pcode) {
+    Difficulty(String pname, String pcode) {
         name = pname;
         code = pcode;
     }

@@ -12,46 +12,43 @@ public class Player implements Serializable {
     /** a demonstration of using something other than an enum for holding choices
      *  IRL I would always use an enumeration for this
      */
-    public static List<String> legalMajors = Arrays.asList("CS", "CM", "ISYE", "MATH", "EE", "CMPE", "NA");
 
-    /** a globally unique number for this object */
-    private int id;
-
-    /** this students name */
+    /** this players name */
     private String name;
 
-    /** this students major */
-    private String major;
+    /** this player's difficulty */
+    private Difficulty difficulty;
 
-    /** this student's class standing */
-    private ClassStanding standing;
+    public static List<Integer> pointList = Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
 
     /**
-     * Lookup a major based on its code.  Returns the postion of that
+     * Lookup a major based on its code.  Returns the position of that
      * major in the array, would not have to do this for an enum
      *
      * @param code the major to find
      *
      * @return the index of the array that corresponds to the submitted major
      */
-    public static int findPosition(String code) {
+    public static int findPosition(Integer code) {
         int i = 0;
-        while (i < legalMajors.size()) {
-            if (code.equals(legalMajors.get(i))) return i;
+        while (i < pointList.size()) {
+            if (code.equals(pointList.get(i))) return i;
             ++i;
         }
         return 0;
     }
 
-    public static int findPositionClass(ClassStanding codeClass) {
-        if (codeClass == ClassStanding.FR) {
+    public static int findPositionClass(Difficulty codeDifficulty) {
+        if (codeDifficulty == Difficulty.BE) {
             return 0;
-        } else if (codeClass == ClassStanding.SO) {
+        } else if (codeDifficulty == Difficulty.EA) {
             return 1;
-        } else if (codeClass == ClassStanding.JR) {
+        } else if (codeDifficulty == Difficulty.NO) {
             return 2;
-        } else if (codeClass == ClassStanding.SR) {
+        } else if (codeDifficulty == Difficulty.HA) {
             return 3;
+        } else if (codeDifficulty == Difficulty.IM) {
+            return 4;
         }
         return 0;
     }
@@ -60,57 +57,40 @@ public class Player implements Serializable {
      * Constructor required for making the  new object
      *
      * @param nam     name of the student
-     * @param maj    major of the student
      */
-    public Student(String nam, String maj, ClassStanding standing) {
-        this(nam,maj);
-        this.standing = standing;
+    public Player(String nam, Difficulty difficult) {
+        this(nam);
+        this.difficulty = difficult;
     }
 
     /**
      * Constructor required for making the  new object
      *
      * @param nam     name of the student
-     * @param maj    major of the student
      */
-    public Student(String nam, String maj) {
+    public Player(String nam) {
         this.name = nam;
-        this.major = maj;
-        this.standing = ClassStanding.FR;
+        this.difficulty = Difficulty.BE;
     }
 
 
 
     //Getters are required for accessing the fields from the database
 
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
     }
 
-    public String getMajor() {
-        return major;
-    }
-
     public void setName(String nam) { name = nam; }
 
-    public void setMajor(String maj) {major = maj; }
+    public Difficulty getDifficulty() {return difficulty; }
 
-    public ClassStanding getCStanding() {return standing; }
-
-    public void setClassStanding(ClassStanding stand) {standing = stand;}
-
-    //Need a way to set the id from the database
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setDifficulty(Difficulty diff) {difficulty = diff;}
 
     @Override
     public String toString() {
-        return String.format("Student: %s, major: %s, id: %d, standing: %s", name, major, id, standing);
+        return String.format("Player: %s, difficulty: %s", name, difficulty);
     }
 
 }
