@@ -6,115 +6,153 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:background="#000"
+
+
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.gatech.cs2340.lab3newcomponents.views.EditStudentActivity"
-    tools:showIn="@layout/activity_edit_student">
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.ConfigurationActivity"
+    tools:showIn="@layout/character_edit">
 
     <TextView
+        android:id="@+id/student_id_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/student_id_field" />
+        android:layout_alignParentTop="true" />
 
     <TextView
-        android:id="@+id/major_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/student_name_input"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="21dp"
-        android:text="Difficulty" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/student_name_input"
-        android:layout_marginTop="32dp"
-        android:layout_below="@id/name_header"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Name:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/name_header"
-        android:layout_below="@+id/student_id_field"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
-
-    <Spinner
-        android:id="@+id/major_spinner"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/major_header"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="7dp" />
+        android:text="Space Traders"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#7FFF00"
+        android:textStyle="bold" />
 
-    <Button
-        android:text="Add"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/add_button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="20dp"
-        android:onClick="onAddPressed" />
-
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
-        android:id="@+id/cancel_button"
-        android:onClick="onCancelPressed" />
-
+        android:layout_below="@+id/title"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Character Name?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFF"/>
 
     <TextView
-        android:id="@+id/class_s"
-        android:layout_width="wrap_content"
+        android:id="@+id/diffTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/Fighter"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-5dp"
-        android:layout_marginBottom="246dp"
-        android:text="Pilot   " />
+        android:layout_below="@+id/name"
+        android:layout_marginTop="36dp"
+        android:text="Difficulty?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFF"/>
 
     <Spinner
-        android:id="@+id/stand_spinner"
-        android:layout_width="67dp"
+        android:id="@+id/diffLevel"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Fighter"
-        android:layout_alignStart="@+id/student_id_field"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="33dp" />
-
-    <Spinner
-        android:id="@+id/fighter"
-        android:layout_width="67dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/student_id_field"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="139dp" />
+        android:layout_below="@id/diffTitle"
+        android:layout_marginTop="15dp"
+        android:dropDownWidth="wrap_content"
+        android:popupBackground="#FFF"
+        android:textColor="#FFF" />
 
     <TextView
-        android:id="@+id/Fighter"
+        android:id="@+id/skillTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diffLevel"
+        android:layout_marginTop="16dp"
+        android:text="Choose Your Skills!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/firstSkillTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/fighter"
-        android:layout_alignStart="@+id/student_id_field"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="11dp"
-        android:text="Fighter" />
+        android:layout_below="@id/skillTitle"
+        android:layout_marginTop="20dp"
+        android:text="First Skill"
+        android:textSize="25dp"
+        android:textColor="#FFF"/>
+
+    <Spinner
+        android:id="@+id/firstSkillSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstSkillTitle"
+        android:layout_marginTop="8dp"
+        android:popupBackground="#FFF"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/secondSkillTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstSkillSpin"
+        android:layout_marginTop="-4dp"
+        android:text="Second Skill"
+        android:textSize="25dp"
+        android:textColor="#FFF"/>
+
+    <Spinner
+        android:id="@+id/secondSkillSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/secondSkillTitle"
+        android:layout_marginTop="8dp"
+        android:popupBackground="#FFF"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/thirdSkillTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/secondSkillSpin"
+        android:layout_marginTop="1dp"
+        android:text="Third Skill"
+        android:textSize="25dp"
+        android:textColor="#FFF"/>
+
+    <Spinner
+        android:id="@+id/thirdSkillSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thirdSkillTitle"
+        android:popupBackground="#FFF"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/fourthSkillTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thirdSkillSpin"
+        android:layout_marginTop="11dp"
+        android:text="Fourth Skill"
+        android:textSize="25dp"
+        android:textColor="#FFF"/>
+
+    <Spinner
+        android:id="@+id/fourthSkillSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fourthSkillTitle"
+        android:popupBackground="#FFF"
+        android:textColor="#FFF"/>
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fourthSkillSpin"
+        android:layout_marginTop="0dp"
+        android:text="START GAME" />
+
 
 </RelativeLayout>
