@@ -19,6 +19,11 @@ public class Player implements Serializable {
     /** this player's difficulty */
     private Difficulty difficulty;
 
+    private Integer fighterPoints;
+    private Integer pilotPoints;
+    private Integer traderPoints;
+    private Integer engineerPoints;
+
 
     public static List<Integer> pointList = Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
 
@@ -89,6 +94,22 @@ public class Player implements Serializable {
     public Difficulty getDifficulty() {return difficulty; }
 
     public void setDifficulty(Difficulty diff) {difficulty = diff;}
+
+    public Integer getPilotPoints() {return pilotPoints;}
+
+    public void setPilotPoints(Integer p) {pilotPoints = p;}
+
+    public Integer getFighterPoints() {return fighterPoints;}
+
+    public void setFighterPoints(Integer f) {fighterPoints = f;}
+
+    public Integer getTraderPoints() {return traderPoints;}
+
+    public void setTraderPoints(Integer t) {traderPoints = t;}
+
+    public Integer getEngineerPoints() {return engineerPoints;}
+
+    public void setEngineerPoints(Integer e) {engineerPoints = e;}
 
     @Override
     public String toString() {
