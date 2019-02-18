@@ -8,11 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Difficulty;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import edu.gatech.cs2340.lab3newcomponents.viewmodels.ConfigurationViewModel;
+
 
 public class ConfigurationActivity extends AppCompatActivity {
 
@@ -46,6 +48,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private Spinner skillTypeFour;
 
     private Player player;
+
 
 
     @Override
@@ -94,8 +97,62 @@ public class ConfigurationActivity extends AppCompatActivity {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         skillTypeFour.setAdapter(adapter5);
 
+//        Integer one = (Integer)skillTypeOne.getSelectedItem();
+//        Integer two = (Integer)skillTypeTwo.getSelectedItem();
+//        Integer three = (Integer)skillTypeThree.getSelectedItem();
+//        Integer four = (Integer)skillTypeFour.getSelectedItem();
+
+//        startButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Integer one = (Integer)skillTypeOne.getSelectedItem();
+//                Integer two = (Integer)skillTypeTwo.getSelectedItem();
+//                Integer three = (Integer)skillTypeThree.getSelectedItem();
+//                Integer four = (Integer)skillTypeFour.getSelectedItem();
+//                if ((one + two + three + four) == 16) {
+//                    Toast.makeText(this, "yay", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+
+
+//        if ((one + two + three + four) == 16) {
+//
+//        }
+
+//        skillTypeOne.setSelection(Player.findPosition(player.getPoints()));
+//        skillTypeTwo.setSelection(Player.findPosition(player.getPoints()));
+//        skillTypeThree.setSelection(Player.findPosition(player.getPoints()));
+//        skillTypeFour.setSelection(Player.findPosition(player.getPoints()));
+
+//        if (skillTypeOne.getSelectedItemPosition() + skillTypeTwo.getSelectedItemPosition() + skillTypeThree.getSelectedItemPosition() + skillTypeFour.getSelectedItemPosition() == 16) {
+//            startButton.setText("Yes");
+//        } else {
+//            startButton.setText("No");
+//        }
 
     }
+
+    public void onClick(View view) {
+        Integer one = (Integer)skillTypeOne.getSelectedItem();
+        Integer two = (Integer)skillTypeTwo.getSelectedItem();
+        Integer three = (Integer)skillTypeThree.getSelectedItem();
+        Integer four = (Integer)skillTypeFour.getSelectedItem();
+        if ((one + two + three + four) == 16) {
+            Toast.makeText(this, "yay", Toast.LENGTH_SHORT).show();
+            player.setName(playerName.getText().toString());
+            player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
+            player.setPilotPoints((Integer)skillTypeOne.getSelectedItem());
+            player.setFighterPoints((Integer)skillTypeTwo.getSelectedItem());
+            player.setTraderPoints((Integer)skillTypeThree.getSelectedItem());
+            player.setEngineerPoints((Integer)skillTypeFour.getSelectedItem());
+        } else {
+            Toast.makeText(this, "Can't create player: Make sure the points add up to 16!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     /**
      * Button handler for the add new student button
@@ -103,7 +160,9 @@ public class ConfigurationActivity extends AppCompatActivity {
      * @param view the button that was pressed
      */
     public void onAddPressed(View view) {
-        Log.d("Edit", "Add/Update Student Pressed");
+        //Log.d("Edit", "Add/Update Student Pressed");
+
+
 
         player.setName(playerName.getText().toString());
         player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
@@ -112,7 +171,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         //do the right thing depending on whether this is a new student or an edit
 
-        finish();
+        //finish();
     }
 
 }
