@@ -154,7 +154,7 @@
         android:layout_below="@id/fourthSkillSpin"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="55dp"
-        android:onClick="onAddPressed"
+        android:onClick="onClick"
         android:text="START GAME"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:visibility="visible" />
