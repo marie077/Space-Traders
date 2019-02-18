@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Difficulty;
+import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import edu.gatech.cs2340.lab3newcomponents.viewmodels.ConfigurationViewModel;
 
 public class ConfigurationActivity extends AppCompatActivity {
@@ -42,6 +45,9 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     private Spinner skillTypeFour;
 
+    private Player player;
+
+
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);
@@ -68,15 +74,45 @@ public class ConfigurationActivity extends AppCompatActivity {
           Set up the adapter to display the allowable difficulties in the spinner
          */
 
-        /*ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.legalDifficulties);
+        ArrayAdapter<Difficulty> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        majorSpinner.setAdapter(adapter);
+        difficultyLevel.setAdapter(adapter);
 
-        ArrayAdapter<ClassStanding> adapterStand = new ArrayAdapter<ClassStanding>(this, android.R.layout.simple_spinner_item, ClassStanding.values());
-        adapterStand.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        standingSpinner.setAdapter(adapterStand);
-        */
+        ArrayAdapter<Integer> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Player.pointList);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        skillTypeOne.setAdapter(adapter2);
 
+        ArrayAdapter<Integer> adapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Player.pointList);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        skillTypeTwo.setAdapter(adapter3);
+
+        ArrayAdapter<Integer> adapter4 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Player.pointList);
+        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        skillTypeThree.setAdapter(adapter4);
+
+        ArrayAdapter<Integer> adapter5 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Player.pointList);
+        adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        skillTypeFour.setAdapter(adapter5);
+
+
+    }
+
+    /**
+     * Button handler for the add new student button
+     *
+     * @param view the button that was pressed
+     */
+    public void onAddPressed(View view) {
+        Log.d("Edit", "Add/Update Student Pressed");
+
+        player.setName(playerName.getText().toString());
+        player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
+
+        Log.d("Edit", "Got new student data: " + player);
+
+        //do the right thing depending on whether this is a new student or an edit
+
+        finish();
     }
 
 }
