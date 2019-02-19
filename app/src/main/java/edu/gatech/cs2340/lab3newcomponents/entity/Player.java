@@ -45,15 +45,15 @@ public class Player implements Serializable {
     }
 
     public static int findPositionClass(Difficulty codeDifficulty) {
-        if (codeDifficulty == Difficulty.BE) {
+        if (codeDifficulty == Difficulty.BEGINNER) {
             return 0;
-        } else if (codeDifficulty == Difficulty.EA) {
+        } else if (codeDifficulty == Difficulty.EASY) {
             return 1;
-        } else if (codeDifficulty == Difficulty.NO) {
+        } else if (codeDifficulty == Difficulty.NORMAL) {
             return 2;
-        } else if (codeDifficulty == Difficulty.HA) {
+        } else if (codeDifficulty == Difficulty.HARD) {
             return 3;
-        } else if (codeDifficulty == Difficulty.IM) {
+        } else if (codeDifficulty == Difficulty.IMPOSSIBLE) {
             return 4;
         }
         return 0;
@@ -77,7 +77,7 @@ public class Player implements Serializable {
      */
     public Player(String nam) {
         this.name = nam;
-        this.difficulty = Difficulty.BE;
+        this.difficulty = Difficulty.BEGINNER;
     }
 
 

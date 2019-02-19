@@ -1,253 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
+
     android:id="@+id/content_edit_student"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
+
     android:padding="20dp"
+
     android:background="#000"
 
 
 
+
+
+
+
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
     tools:context="edu.gatech.cs2340.lab3newcomponents.views.ConfigurationActivity"
+
     tools:showIn="@layout/character_edit">
 
+
+
     <TextView
+
         android:id="@+id/student_id_field"
+
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+
         android:layout_alignParentStart="true"
+
         android:layout_alignParentTop="true" />
 
+
+
     <TextView
+
         android:id="@+id/title"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:text="Space Traders"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+
         android:textColor="#7FFF00"
+
         android:textStyle="bold" />
 
+
+
     <EditText
+
         android:id="@+id/name"
-        android:layout_width="201dp"
+
+        android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/title"
-        android:layout_marginTop="-12dp"
+
+        android:layout_marginTop="-14dp"
+
         android:ems="10"
+
         android:inputType="textPersonName"
-        android:text="Welcome, "
+
+        android:text="Character Name?"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+
         android:textColor="#FFF" />
+
+
 
     <TextView
+
         android:id="@+id/diffTitle"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/name"
+
         android:layout_marginTop="-9dp"
-        android:text="Difficulty:"
+
+        android:text="Difficulty?"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+
         android:textColor="#FFF" />
 
+
+
     <Spinner
+
         android:id="@+id/diffLevel"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/diffTitle"
+
         android:layout_marginTop="15dp"
+
         android:dropDownWidth="wrap_content"
+
         android:background="#FFF"
+
         android:textColor="#7FFF00" />
 
+
+
     <TextView
+
         android:id="@+id/skillTitle"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/diffLevel"
+
         android:layout_marginTop="2dp"
-        android:text="Your Skills:"
+
+        android:text="Choose Your Skills!"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+
         android:textColor="#FFF" />
 
+
+
     <TextView
+
         android:id="@+id/firstSkillTitle"
+
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/skillTitle"
+
         android:layout_marginTop="5dp"
+
         android:text="Pilot"
+
         android:textColor="#FFF"
+
         android:textSize="25dp" />
 
+
+
     <Spinner
+
         android:id="@+id/firstSkillSpin"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/firstSkillTitle"
+
         android:layout_marginTop="8dp"
+
         android:background="#FFF"
+
         android:textColor="#FFF" />
 
+
+
     <TextView
+
         android:id="@+id/secondSkillTitle"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/firstSkillSpin"
+
         android:layout_marginTop="-4dp"
+
         android:text="Fighter"
+
         android:textColor="#FFF"
+
         android:textSize="25dp" />
 
+
+
     <Spinner
+
         android:id="@+id/secondSkillSpin"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/secondSkillTitle"
+
         android:layout_marginTop="8dp"
+
         android:background="#FFF"
+
         android:textColor="#FFF" />
 
+
+
     <TextView
+
         android:id="@+id/thirdSkillTitle"
+
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/secondSkillSpin"
+
         android:layout_marginTop="1dp"
+
         android:text="Trader"
+
         android:textColor="#FFF"
+
         android:textSize="25dp" />
 
+
+
     <Spinner
+
         android:id="@+id/thirdSkillSpin"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/thirdSkillTitle"
+
         android:background="#FFF"
+
         android:textColor="#FFF" />
+
+
 
     <TextView
+
         android:id="@+id/fourthSkillTitle"
+
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/thirdSkillSpin"
+
         android:layout_marginTop="11dp"
+
         android:text="Engineer"
+
         android:textColor="#FFF"
+
         android:textSize="25dp" />
 
+
+
     <Spinner
+
         android:id="@+id/fourthSkillSpin"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/fourthSkillTitle"
+
         android:layout_marginBottom="0dp"
+
         android:background="#FFF"
+
         android:textColor="#FFF" />
+
+
 
     <Button
+
         android:id="@+id/startGameButton"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:layout_below="@id/fourthSkillSpin"
+
         android:layout_marginTop="12dp"
+
         android:layout_marginBottom="55dp"
+
         android:onClick="onClick"
+
         android:text="START GAME"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+
         android:visibility="visible" />
 
-    <TextView
-        android:id="@+id/characterName"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
 
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="Test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
 
-    <TextView
-        android:id="@+id/diffInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-3dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginBottom="-66dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="Dif test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/pilotInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-11dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginBottom="-147dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="P Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/fightInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-15dp"
-        android:layout_marginTop="199dp"
-        android:layout_marginBottom="-195dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="F Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/tradeInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-22dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginBottom="-244dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="T Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/engInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-12dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginBottom="-300dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="E Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
 
 
 </RelativeLayout>

@@ -1,4 +1,5 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -141,13 +142,26 @@ public class ConfigurationActivity extends AppCompatActivity {
         Integer three = (Integer)skillTypeThree.getSelectedItem();
         Integer four = (Integer)skillTypeFour.getSelectedItem();
         if ((one + two + three + four) == 16) {
-            Toast.makeText(this, "yay", Toast.LENGTH_SHORT).show();
-            player.setName(playerName.getText().toString());
-            player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
-            player.setPilotPoints((Integer)skillTypeOne.getSelectedItem());
-            player.setFighterPoints((Integer)skillTypeTwo.getSelectedItem());
-            player.setTraderPoints((Integer)skillTypeThree.getSelectedItem());
-            player.setEngineerPoints((Integer)skillTypeFour.getSelectedItem());
+//            Toast.makeText(this, "yay", Toast.LENGTH_SHORT).show();
+            String output = "";
+            output += "Name: " + playerName.getText().toString() + "\n";
+            output += "Difficulty: " + difficultyLevel.getSelectedItem() + "\n";
+            output += "Pilot: " + skillTypeOne.getSelectedItem().toString() + "\n";
+            output += "Fighter: " + skillTypeTwo.getSelectedItem().toString() + "\n";
+            output += "Trader: " + skillTypeThree.getSelectedItem().toString() + "\n";
+            output += "Engineer: " + skillTypeFour.getSelectedItem().toString() + "\n";
+            Toast.makeText(this,output, Toast.LENGTH_SHORT).show();
+            //player.setName(playerName.getText().toString());
+//            player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
+//            player.setPilotPoints((Integer)skillTypeOne.getSelectedItem());
+//            player.setFighterPoints((Integer)skillTypeTwo.getSelectedItem());
+//            player.setTraderPoints((Integer)skillTypeThree.getSelectedItem());
+//            player.setEngineerPoints((Integer)skillTypeFour.getSelectedItem());
+
+            //Toast.makeText(this,output, Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(ConfigurationActivity.this, PlayerActivity.class);
+//            startActivity(intent);
+
         } else {
             Toast.makeText(this, "Can't create player: Make sure the points add up to 16!", Toast.LENGTH_SHORT).show();
         }
