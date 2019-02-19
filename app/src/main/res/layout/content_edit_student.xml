@@ -43,7 +43,7 @@
         android:textColor="#FFF" />
 
     <TextView
-        android:id="@+id/diffTitle"
+        android:id="@+id/diff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
@@ -56,7 +56,7 @@
         android:id="@+id/diffLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/diffTitle"
+        android:layout_below="@id/diff"
         android:layout_marginTop="15dp"
         android:dropDownWidth="wrap_content"
         android:background="#FFF"
@@ -157,97 +157,8 @@
         android:onClick="onClick"
         android:text="START GAME"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/characterName"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="Test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/diffInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-3dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginBottom="-66dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="Dif test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/pilotInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-11dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginBottom="-147dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="P Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/fightInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-15dp"
-        android:layout_marginTop="199dp"
-        android:layout_marginBottom="-195dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="F Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/tradeInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-22dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginBottom="-244dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="T Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/engInput"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_marginLeft="-12dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginBottom="-300dp"
-        android:layout_toRightOf="@+id/name"
-        android:text="E Points"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
+        android:visibility="visible"
+        />
 
 
 </RelativeLayout>

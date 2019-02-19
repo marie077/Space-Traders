@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="edu.gatech.cs2340.lab3newcomponents.views.ConfigurationActivity">
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.WelcomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay" />
 
-    <include layout="@layout/content_edit_student" />
+    <include layout="@layout/welcome_screen_new" />
 
 </android.support.design.widget.CoordinatorLayout>

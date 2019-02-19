@@ -1,4 +1,5 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -60,7 +61,7 @@ public class ConfigurationActivity extends AppCompatActivity {
          * Grab the dialog widgets so we can get info for later
          */
         playerName = findViewById(R.id.name);
-        difficultTitle = findViewById(R.id.diffTitle);
+        difficultTitle = findViewById(R.id.diff);
         difficultyLevel = findViewById(R.id.diffLevel);
         skillTitle = findViewById(R.id.skillTitle);
         skillOneTitle = findViewById(R.id.firstSkillTitle);
@@ -97,6 +98,13 @@ public class ConfigurationActivity extends AppCompatActivity {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         skillTypeFour.setAdapter(adapter5);
 
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
+            }
+        });
 //        Integer one = (Integer)skillTypeOne.getSelectedItem();
 //        Integer two = (Integer)skillTypeTwo.getSelectedItem();
 //        Integer three = (Integer)skillTypeThree.getSelectedItem();
@@ -134,24 +142,24 @@ public class ConfigurationActivity extends AppCompatActivity {
 //        }
 
     }
-
-    public void onClick(View view) {
-        Integer one = (Integer)skillTypeOne.getSelectedItem();
-        Integer two = (Integer)skillTypeTwo.getSelectedItem();
-        Integer three = (Integer)skillTypeThree.getSelectedItem();
-        Integer four = (Integer)skillTypeFour.getSelectedItem();
-        if ((one + two + three + four) == 16) {
-            Toast.makeText(this, "yay", Toast.LENGTH_SHORT).show();
-            player.setName(playerName.getText().toString());
-            player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
-            player.setPilotPoints((Integer)skillTypeOne.getSelectedItem());
-            player.setFighterPoints((Integer)skillTypeTwo.getSelectedItem());
-            player.setTraderPoints((Integer)skillTypeThree.getSelectedItem());
-            player.setEngineerPoints((Integer)skillTypeFour.getSelectedItem());
-        } else {
-            Toast.makeText(this, "Can't create player: Make sure the points add up to 16!", Toast.LENGTH_SHORT).show();
-        }
-    }
+//
+//    public void onClick(View view) {
+//        Integer one = (Integer)skillTypeOne.getSelectedItem();
+//        Integer two = (Integer)skillTypeTwo.getSelectedItem();
+//        Integer three = (Integer)skillTypeThree.getSelectedItem();
+//        Integer four = (Integer)skillTypeFour.getSelectedItem();
+//        if ((one + two + three + four) == 16) {
+//            Toast.makeText(this, "yay", Toast.LENGTH_SHORT).show();
+//            player.setName(playerName.getText().toString());
+//            player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
+//            player.setPilotPoints((Integer)skillTypeOne.getSelectedItem());
+//            player.setFighterPoints((Integer)skillTypeTwo.getSelectedItem());
+//            player.setTraderPoints((Integer)skillTypeThree.getSelectedItem());
+//            player.setEngineerPoints((Integer)skillTypeFour.getSelectedItem());
+//        } else {
+//            Toast.makeText(this, "Can't create player: Make sure the points add up to 16!", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
     /**
