@@ -98,41 +98,20 @@ public class ConfigurationActivity extends AppCompatActivity {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         skillTypeFour.setAdapter(adapter5);
 
-//        Integer one = (Integer)skillTypeOne.getSelectedItem();
-//        Integer two = (Integer)skillTypeTwo.getSelectedItem();
-//        Integer three = (Integer)skillTypeThree.getSelectedItem();
-//        Integer four = (Integer)skillTypeFour.getSelectedItem();
 
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
+            }
+        });
 //        startButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
 //            public void onClick(View v) {
-//                Integer one = (Integer)skillTypeOne.getSelectedItem();
-//                Integer two = (Integer)skillTypeTwo.getSelectedItem();
-//                Integer three = (Integer)skillTypeThree.getSelectedItem();
-//                Integer four = (Integer)skillTypeFour.getSelectedItem();
-//                if ((one + two + three + four) == 16) {
-//                    Toast.makeText(this, "yay", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
-//                }
+//                startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
 //            }
 //        });
 
-
-
-//        if ((one + two + three + four) == 16) {
-//
-//        }
-
-//        skillTypeOne.setSelection(Player.findPosition(player.getPoints()));
-//        skillTypeTwo.setSelection(Player.findPosition(player.getPoints()));
-//        skillTypeThree.setSelection(Player.findPosition(player.getPoints()));
-//        skillTypeFour.setSelection(Player.findPosition(player.getPoints()));
-
-//        if (skillTypeOne.getSelectedItemPosition() + skillTypeTwo.getSelectedItemPosition() + skillTypeThree.getSelectedItemPosition() + skillTypeFour.getSelectedItemPosition() == 16) {
-//            startButton.setText("Yes");
-//        } else {
-//            startButton.setText("No");
-//        }
 
     }
 
