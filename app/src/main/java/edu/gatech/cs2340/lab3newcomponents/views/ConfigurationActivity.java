@@ -1,4 +1,6 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Difficulty;
@@ -19,8 +20,6 @@ import edu.gatech.cs2340.lab3newcomponents.viewmodels.ConfigurationViewModel;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
-
-    private ConfigurationViewModel configurationViewModel;
 
 // widgets we will need in our view
 
@@ -102,8 +101,40 @@ public class ConfigurationActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
+                int pilotPoints = Integer.parseInt(skillTypeOne.getSelectedItem().toString());
+                int fighterPoints = Integer.parseInt(skillTypeTwo.getSelectedItem().toString());
+                int traderPoints = Integer.parseInt(skillTypeThree.getSelectedItem().toString());
+                int engineerPoints = Integer.parseInt(skillTypeFour.getSelectedItem().toString());
+                int check = pilotPoints + fighterPoints + traderPoints + engineerPoints;
+                if ((check == 16) && (playerName.getText() != null)) {
+                    startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
+
+
+                    Intent intent = new Intent(ConfigurationActivity.this, WelcomeActivity.class);
+                    intent.putExtra("character", playerName.getText().toString());
+                    intent.putExtra("difficulty", difficultyLevel.getSelectedItem().toString());
+                    intent.putExtra("Pilot", skillTypeOne.getSelectedItem().toString());
+                    intent.putExtra("Fighter", skillTypeTwo.getSelectedItem().toString());
+                    intent.putExtra("Trader", skillTypeThree.getSelectedItem().toString());
+                    intent.putExtra("Engineer", skillTypeFour.getSelectedItem().toString());
+                    startActivity(intent);
+                } else {
+                    AlertDialog alertDialog = new AlertDialog.Builder(ConfigurationActivity.this).create();
+                    alertDialog.setTitle("Alert");
+                    alertDialog.setMessage("Points must total to 16 and you must have a character name if you have not put one in!");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+
+                }
+
             }
+
         });
 //        Integer one = (Integer)skillTypeOne.getSelectedItem();
 //        Integer two = (Integer)skillTypeTwo.getSelectedItem();

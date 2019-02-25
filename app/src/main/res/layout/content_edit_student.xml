@@ -22,23 +22,32 @@
         android:layout_alignParentTop="true" />
 
     <TextView
-        android:id="@+id/title"
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Space Traders"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+    android:textColor="#7FFF00"
+    android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nameTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Space Traders"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textColor="#7FFF00"
-        android:textStyle="bold" />
+        android:layout_below="@+id/title"
+        android:layout_marginTop="9dp"
+        android:text="Name:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFF"/>
 
     <EditText
         android:id="@+id/name"
         android:layout_width="201dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/nameTitle"
         android:layout_marginTop="-12dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Welcome, "
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFF" />
 
