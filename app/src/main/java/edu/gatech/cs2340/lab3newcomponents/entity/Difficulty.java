@@ -6,11 +6,11 @@ package edu.gatech.cs2340.lab3newcomponents.entity;
  * This class represents the various school codes for registration
  */
 public enum Difficulty {
-    BE ("Beginner", "BE"),
-    EA ("Easy", "EA"),
-    NO ("Normal", "NO"),
-    HA ("Hard", "HA"),
-    IM ("Impossible", "IM");
+    BEGINNER ("Beginner", "Beginner"),
+    EASY ("Easy", "Easy"),
+    NORMAL ("Normal", "Normal"),
+    HARD ("Hard", "Hard"),
+    IMPOSSIBLE ("Impossible", "Impossible");
 
 //hi this is calista
     /** the full string representation of the course name */
