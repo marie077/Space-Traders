@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -38,6 +40,24 @@ public class WelcomeActivity extends AppCompatActivity {
         trader = findViewById(R.id.tradeInput);
         engineer = findViewById(R.id.engInput);
         alien = findViewById(R.id.alienPic);
+
+  
+        Intent in = getIntent();
+        String characterIn = in.getStringExtra("character");
+        String difficultyIn = in.getStringExtra("difficulty");
+        String pilotIn = in.getStringExtra("Pilot");
+        String fighterIn = in.getStringExtra("Fighter");
+        String traderIn = in.getStringExtra("Trader");
+        String engineerIn = in.getStringExtra("Engineer");
+
+        name.setText(characterIn);
+        difficulty.setText("Difficulty:  " + difficultyIn);
+        pilot.setText("P points:  " + pilotIn);
+        fighter.setText("F points:  " + fighterIn);
+        trader.setText("T points:  " + traderIn);
+        engineer.setText("E points:  " + engineerIn);
+
+
 
     }
 }
