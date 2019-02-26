@@ -32,7 +32,6 @@
         android:layout_height="56dp"
         android:layout_below="@+id/characterName"
         android:layout_marginTop="6dp"
-        android:text="Difficulty:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFF" />
 
@@ -43,7 +42,6 @@
         android:layout_height="64dp"
         android:layout_below="@+id/diff"
         android:layout_marginTop="5dp"
-        android:text="P Points: "
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFF" />
 
@@ -54,7 +52,6 @@
         android:layout_height="61dp"
         android:layout_below="@+id/pilotInput"
         android:layout_marginTop="-9dp"
-        android:text="F Points: "
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFF" />
 
@@ -64,7 +61,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fightInput"
         android:layout_marginTop="-9dp"
-        android:text="T Points:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFF" />
 
@@ -74,7 +70,6 @@
         android:layout_height="60dp"
         android:layout_below="@+id/tradeInput"
         android:layout_marginTop="1dp"
-        android:text="E Points: "
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFF" />
 

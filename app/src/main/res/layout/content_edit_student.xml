@@ -16,12 +16,6 @@
 
     android:background="#000"
 
-
-
-
-
-
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
     tools:context="edu.gatech.cs2340.lab3newcomponents.views.ConfigurationActivity"

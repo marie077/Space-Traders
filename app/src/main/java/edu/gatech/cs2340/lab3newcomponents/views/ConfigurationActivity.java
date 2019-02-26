@@ -102,22 +102,25 @@ public class ConfigurationActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //maybe we need to instantiate a player using the constructor here? not sure?
                 int pilotPoints = Integer.parseInt(skillTypeOne.getSelectedItem().toString());
                 int fighterPoints = Integer.parseInt(skillTypeTwo.getSelectedItem().toString());
                 int traderPoints = Integer.parseInt(skillTypeThree.getSelectedItem().toString());
                 int engineerPoints = Integer.parseInt(skillTypeFour.getSelectedItem().toString());
                 int check = pilotPoints + fighterPoints + traderPoints + engineerPoints;
+
                 if ((check == 16) && (playerName.getText() != null)) {
+                    //instantiated a user!
+                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints);
+
                     startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
-
-
                     Intent intent = new Intent(ConfigurationActivity.this, WelcomeActivity.class);
-                    intent.putExtra("character", playerName.getText().toString());
-                    intent.putExtra("difficulty", difficultyLevel.getSelectedItem().toString());
-                    intent.putExtra("Pilot", skillTypeOne.getSelectedItem().toString());
-                    intent.putExtra("Fighter", skillTypeTwo.getSelectedItem().toString());
-                    intent.putExtra("Trader", skillTypeThree.getSelectedItem().toString());
-                    intent.putExtra("Engineer", skillTypeFour.getSelectedItem().toString());
+                    intent.putExtra("character", spaceTrader.getName());
+                    intent.putExtra("difficulty", spaceTrader.getDifficulty().toString());
+                    intent.putExtra("Pilot", spaceTrader.getPilotPoints().toString());
+                    intent.putExtra("Fighter", spaceTrader.getFighterPoints().toString());
+                    intent.putExtra("Trader",spaceTrader.getTraderPoints().toString());
+                    intent.putExtra("Engineer", spaceTrader.getEngineerPoints().toString());
                     startActivity(intent);
                 } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(ConfigurationActivity.this).create();
@@ -137,55 +140,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             }
 
         });
-//        Integer one = (Integer)skillTypeOne.getSelectedItem();
-//        Integer two = (Integer)skillTypeTwo.getSelectedItem();
-//        Integer three = (Integer)skillTypeThree.getSelectedItem();
-//        Integer four = (Integer)skillTypeFour.getSelectedItem();
 
 
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
-            }
-        });
-//        startButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
-//            }
-//        });
-
-
-    }
-
-
-//            player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
-//            player.setPilotPoints((Integer)skillTypeOne.getSelectedItem());
-//            player.setFighterPoints((Integer)skillTypeTwo.getSelectedItem());
-//            player.setTraderPoints((Integer)skillTypeThree.getSelectedItem());
-//            player.setEngineerPoints((Integer)skillTypeFour.getSelectedItem());
-
-
-
-    /**
-     * Button handler for the add new student button
-     *
-     * @param view the button that was pressed
-     */
-    public void onAddPressed(View view) {
-        //Log.d("Edit", "Add/Update Student Pressed");
-
-
-
-        player.setName(playerName.getText().toString());
-        player.setDifficulty((Difficulty) difficultyLevel.getSelectedItem());
-
-        Log.d("Edit", "Got new student data: " + player);
-
-        //do the right thing depending on whether this is a new student or an edit
-
-        //finish();
     }
 
 }

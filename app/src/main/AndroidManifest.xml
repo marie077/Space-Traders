@@ -31,10 +31,12 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-
         <activity
-            android:name=".views.PlayerActivity"
-            android:parentActivityName=".views.ConfigurationActivity" />
+            android:name=".views.UniverseActivity"
+            android:label="lab3NewComponents"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
 
     </application>
