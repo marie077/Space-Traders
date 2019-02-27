@@ -22,8 +22,10 @@ public class Planet {
         this.longitude = result2;
         this.level = level;
         this.resource = resource;
-        int randomInt = rand.nextInt(9);
-        this.name = name;
+        List<Integer> list = Arrays.asList(0, 1, 2, 3,4,5,6,7,8,9);
+        int randomInt = list.get(rand.nextInt(list.size()));
+        this.name = planets.get(randomInt);
+        list.remove(randomInt);
     }
 
     public int getLatitude(int latitude) {
