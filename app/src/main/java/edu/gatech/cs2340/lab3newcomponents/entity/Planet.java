@@ -22,7 +22,8 @@ public class Planet {
         this.longitude = result2;
         this.level = level;
         this.resource = resource;
-        this.name = name;
+        int randomInt = rand.nextInt(9);
+        this.name = nam;
     }
 
     public int getLatitude(int latitude) {
