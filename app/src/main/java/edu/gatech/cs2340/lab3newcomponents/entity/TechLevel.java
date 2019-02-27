@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
+import java.util.Random;
+
 public enum TechLevel {
     PRE_AGRICULTURE ("Pre-Agriculture", "0"),
     AGRICULTURE ("Agriculture", "1"),
@@ -45,4 +47,9 @@ public enum TechLevel {
      * @return the display string representation of the course
      */
     public String toString() { return code; }
+
+    public static TechLevel getRandomLevel() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
+    }
 }
