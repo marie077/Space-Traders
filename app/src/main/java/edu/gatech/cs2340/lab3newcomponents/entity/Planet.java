@@ -26,7 +26,6 @@ public class Planet {
         int randomInt = list.get(rand.nextInt(list.size()));
         this.name = planets.get(randomInt);
         list.remove(randomInt);
-
     }
 
     public int getLatitude(int latitude) {
