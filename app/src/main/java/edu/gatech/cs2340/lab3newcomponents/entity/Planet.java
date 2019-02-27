@@ -5,7 +5,6 @@ import java.util.List;
 
 
 public class Planet {
-    //
     private String name;
     private TechLevel level;
     private Resources resource;
@@ -15,17 +14,11 @@ public class Planet {
         "Exo", "Frolix", "Iodine", "Jason", "Kaylon", "Malcoria");
 
     public Planet(String name, int latitude, int longitude, TechLevel level, Resources resource) {
-        Random rand = new Random();
-        int result = rand.nextInt(100);
-        int result2 = rand.nextInt(100);
-        this.latitude = result;
-        this.longitude = result2;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.level = level;
         this.resource = resource;
-        List<Integer> list = Arrays.asList(0, 1, 2, 3,4,5,6,7,8,9);
-        int randomInt = list.get(rand.nextInt(list.size()));
-        this.name = planets.get(randomInt);
-        list.remove(randomInt);
+        this.name = name;
     }
 
     public int getLatitude(int latitude) {
