@@ -46,10 +46,10 @@ public enum TechLevel {
      *
      * @return the display string representation of the course
      */
-    public String toString() { return code; }
+    public String toString() { return name; }
 
-    public static TechLevel getRandomLevel() {
-        Random random = new Random();
-        return values()[random.nextInt(values().length)];
-    }
+//    public static TechLevel getRandomLevel() {
+//        Random random = new Random();
+//        return values()[random.nextInt(values().length)];
+//    }
 }
