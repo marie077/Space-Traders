@@ -32,7 +32,7 @@
         </activity>
 
         <activity
-            android:name=".views.UniverseActivity"
+            android:name=".entity.UniverseActivity"
             android:label="lab3NewComponents"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
