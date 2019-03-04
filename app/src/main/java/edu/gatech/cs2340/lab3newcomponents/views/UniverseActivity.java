@@ -13,6 +13,11 @@ import edu.gatech.cs2340.lab3newcomponents.entity.TechLevel;
 import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
 public class UniverseActivity extends AppCompatActivity {
+    private TechLevel tech;
+    private Resources resource;
+    private int latitude;
+    private int longitude;
+    private static List<String>;
 
     private static final String TAG = "Planet: ";
     private TextView outputText;
