@@ -11,6 +11,6 @@ public class UniverseActivity extends AppCompatActivity {
     private Resources resource;
     private int latitude;
     private int longitude;
-    private static List<String> 
+    private static List<String>;
 
 }
