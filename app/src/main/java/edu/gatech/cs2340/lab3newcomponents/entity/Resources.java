@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
+import java.util.Random;
+
 public enum Resources {
 
     NOSPECIALRESOURCES ("NoSpecialResources", "0"),
@@ -50,5 +52,10 @@ public enum Resources {
      *
      * @return the display string representation of the course
      */
-    public String toString() { return rcode; }
+    public String toString() { return resource; }
+
+//    public static Resources getRandomResource() {
+//        Random random = new Random();
+//        return values()[random.nextInt(values().length)];
+//    }
 }

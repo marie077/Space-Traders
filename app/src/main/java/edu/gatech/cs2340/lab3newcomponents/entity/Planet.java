@@ -5,7 +5,6 @@ import java.util.List;
 
 
 public class Planet {
-    //
     private String name;
     private TechLevel level;
     private Resources resource;
@@ -15,20 +14,14 @@ public class Planet {
         "Exo", "Frolix", "Iodine", "Jason", "Kaylon", "Malcoria");
 
     public Planet(String name, int latitude, int longitude, TechLevel level, Resources resource) {
-        Random rand = new Random();
-        int result = rand.nextInt(100);
-        int result2 = rand.nextInt(100);
-        this.latitude = result;
-        this.longitude = result2;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.level = level;
         this.resource = resource;
-        List<Integer> list = Arrays.asList(0, 1, 2, 3,4,5,6,7,8,9);
-        int randomInt = list.get(rand.nextInt(list.size()));
-        this.name = planets.get(randomInt);
-        list.remove(randomInt);
+        this.name = name;
     }
 
-    public int getLatitude(int latitude) {
+    public Integer getLatitude() {
         return this.latitude;
     }
 
@@ -36,7 +29,7 @@ public class Planet {
         this.latitude = latitude;
     }
 
-    public int getLongitude(int longitude) {
+    public Integer getLongitude() {
         return this.longitude;
     }
 
@@ -44,7 +37,7 @@ public class Planet {
         this.longitude = longitude;
     }
 
-    public TechLevel getLevel(TechLevel level) {
+    public TechLevel getLevel() {
         return this.level;
     }
 
@@ -52,7 +45,7 @@ public class Planet {
         this.level = level;
     }
 
-    public Resources getResources(Resources resource) {
+    public Resources getResources() {
         return this.resource;
     }
 
@@ -61,11 +54,16 @@ public class Planet {
     }
 
 
-    public String getName(String name) {
+    public String getName() {
         return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Planet: %s, latitude: %s, longitude: %s, level: %s, resources: %s", name, latitude, longitude, level, resource);
     }
 }

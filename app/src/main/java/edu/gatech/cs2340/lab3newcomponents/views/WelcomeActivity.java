@@ -4,10 +4,13 @@ package edu.gatech.cs2340.lab3newcomponents.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Button;
 
 import edu.gatech.cs2340.lab3newcomponents.R;
+import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -40,8 +43,8 @@ public class WelcomeActivity extends AppCompatActivity {
         trader = findViewById(R.id.tradeInput);
         engineer = findViewById(R.id.engInput);
         alien = findViewById(R.id.alienPic);
+        Button universeButton = findViewById(R.id.univbutton);
 
-  
         Intent in = getIntent();
         String characterIn = in.getStringExtra("character");
         String difficultyIn = in.getStringExtra("difficulty");
@@ -57,7 +60,16 @@ public class WelcomeActivity extends AppCompatActivity {
         trader.setText("T points:  " + traderIn);
         engineer.setText("E points:  " + engineerIn);
 
-
+        universeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, UniverseActivity.class));
+                Intent intent = new Intent(WelcomeActivity.this, UniverseActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
+
+
 }
