@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Planet;
 import edu.gatech.cs2340.lab3newcomponents.entity.Resources;
@@ -17,7 +19,7 @@ public class UniverseActivity extends AppCompatActivity {
     private Resources resource;
     private int latitude;
     private int longitude;
-    private static List<String>;
+    private static List<String> var; //what is this
 
     private static final String TAG = "Planet: ";
     private TextView outputText;
