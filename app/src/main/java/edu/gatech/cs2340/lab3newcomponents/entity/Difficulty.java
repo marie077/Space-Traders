@@ -12,7 +12,6 @@ public enum Difficulty {
     HARD ("Hard", "Hard"),
     IMPOSSIBLE ("Impossible", "Impossible");
 
-//hi this is calista
     /** the full string representation of the course name */
     private final String name;
 
