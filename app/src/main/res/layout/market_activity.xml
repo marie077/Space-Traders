@@ -5,7 +5,8 @@
     android:id="@+id/market_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000">
+    android:background="#000"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
         android:id="@+id/button2"
@@ -55,5 +56,5 @@
         android:layout_height="179dp"
         app:srcCompat="@drawable/spaceship"
         tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="352dp" />
+        tools:layout_editor_absoluteY="343dp" />
 </android.support.constraint.ConstraintLayout>
