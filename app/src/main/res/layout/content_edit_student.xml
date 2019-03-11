@@ -37,21 +37,20 @@
         android:layout_alignParentTop="true" />
 
 
-
     <TextView
-    android:id="@+id/title"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Space Traders"
-    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-    android:textColor="#7FFF00"
-    android:textStyle="bold" />
+        android:id="@+id/market_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Space Traders"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#7FFF00"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/nameTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/market_activity"
         android:layout_marginTop="9dp"
         android:text="Name:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
