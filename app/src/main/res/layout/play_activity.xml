@@ -20,6 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:background="@android:color/holo_orange_dark"
         tools:srcCompat="@tools:sample/backgrounds/scenic[7]" />
 
     <TextView
@@ -74,8 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/saveGame"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="160dp"
+        android:layout_marginEnd="-4dp"
+        android:layout_marginBottom="211dp"
         android:text="START OVER" />
 
     <TextView
@@ -98,7 +99,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="-8dp"
         android:layout_marginBottom="13dp"
-        android:text="EDITTTTT"
+        android:text="To Be Implemented in M8"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"

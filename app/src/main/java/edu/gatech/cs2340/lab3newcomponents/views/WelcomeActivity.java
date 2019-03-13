@@ -9,7 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 
+import java.io.Serializable;
+
 import edu.gatech.cs2340.lab3newcomponents.R;
+import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -45,6 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
         alien = findViewById(R.id.alienPic);
         Button universeButton = findViewById(R.id.univbutton);
 
+
         Intent in = getIntent();
         String characterIn = in.getStringExtra("character");
         String difficultyIn = in.getStringExtra("difficulty");
@@ -52,6 +56,7 @@ public class WelcomeActivity extends AppCompatActivity {
         String fighterIn = in.getStringExtra("Fighter");
         String traderIn = in.getStringExtra("Trader");
         String engineerIn = in.getStringExtra("Engineer");
+        final Serializable st = getIntent().getSerializableExtra("Player");
 
         name.setText(characterIn);
         difficulty.setText("Difficulty:  " + difficultyIn);
@@ -63,8 +68,9 @@ public class WelcomeActivity extends AppCompatActivity {
         universeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, UniverseActivity.class));
-                Intent intent = new Intent(WelcomeActivity.this, UniverseActivity.class);
+                startActivity(new Intent(WelcomeActivity.this, PlayActivity.class));
+                Intent intent = new Intent(WelcomeActivity.this, PlayActivity.class);
+                intent.putExtra("Player", st);
                 startActivity(intent);
             }
         });

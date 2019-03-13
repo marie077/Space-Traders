@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class Player implements Serializable {
     private int pilotPoints;
     private int traderPoints;
     private int engineerPoints;
+    private int money;
+    public static List<String> cargoList = new ArrayList<>();
 
 
     public static List<Integer> pointList = Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
@@ -32,13 +35,15 @@ public class Player implements Serializable {
      *
      * @param nam     name of the student
      */
-    public Player (String nam, Difficulty difficult, int fighter, int pilot, int trader, int engineer) {
+    public Player (String nam, Difficulty difficult, int fighter, int pilot, int trader, int engineer, int money, List cargoList) {
         this.name = nam;
         this.difficulty = difficult;
         this.fighterPoints = fighter;
         this.pilotPoints = pilot;
         this.traderPoints = trader;
         this.engineerPoints = engineer;
+        this.money = money;
+        this.cargoList = cargoList;
     }
 
 
@@ -106,6 +111,14 @@ public class Player implements Serializable {
     public Integer getEngineerPoints() {return engineerPoints;}
 
     public void setEngineerPoints(int e) {engineerPoints = e;}
+
+    public Integer getMoney() {return money;}
+
+    public void setMoney(int m) {money = m;}
+
+    public List getCargoList() {return cargoList;}
+
+    public void setCargoList(List c) {cargoList = c;}
 
     @Override
     public String toString() {

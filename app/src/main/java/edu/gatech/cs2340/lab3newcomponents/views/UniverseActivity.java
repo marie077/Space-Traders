@@ -1,11 +1,15 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.List;
 
 import edu.gatech.cs2340.lab3newcomponents.R;
@@ -40,5 +44,17 @@ public class UniverseActivity extends AppCompatActivity {
         //output += "hi";
         //Toast.makeText(this,output, Toast.LENGTH_SHORT).show();
         outputText.setText(output);
+        final Serializable st = getIntent().getSerializableExtra("Player");
+
+        Button backPlay = findViewById(R.id.buttonBack);
+        backPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UniverseActivity.this, PlayActivity.class));
+                Intent intent = new Intent(UniverseActivity.this, PlayActivity.class);
+                intent.putExtra("Player", st);
+                startActivity(intent);
+            }
+        });
     }
 }

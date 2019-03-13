@@ -23,7 +23,7 @@ import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import edu.gatech.cs2340.lab3newcomponents.entity.TradeGoods;
 import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
-public class BuyActivity extends AppCompatActivity {
+public class SellActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);
@@ -72,14 +72,14 @@ public class BuyActivity extends AppCompatActivity {
         });
 
         Button buyButton = findViewById(R.id.buyButton);
-        buyButton.setText("BUY");
+        buyButton.setText("SELL");
 //        final TextView cargo = findViewById(R.id.cargoSupply);
         buyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()) > player.getMoney() || player.getCargoList().size() > 4) {
-                    AlertDialog alertDialog = new AlertDialog.Builder(BuyActivity.this).create();
+                if (!player.getCargoList().contains(productName.getText().toString())) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(SellActivity.this).create();
                     alertDialog.setTitle("Alert");
-                    alertDialog.setMessage("You don't have enough money or cargo space. Try again!");
+                    alertDialog.setMessage("You don't have this item in your cargo. Try again!");
 
                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                             new DialogInterface.OnClickListener() {
@@ -89,10 +89,14 @@ public class BuyActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                 } else {
-                    player.setMoney(player.getMoney() - Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()));
+                    player.setMoney(player.getMoney() + Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()));
                     moneyAmt.setText(String.format("$%d", player.getMoney()));
-                    cargo.setText(cargo.getText().toString() + productName.getText().toString() + ", ");
-                    player.getCargoList().add(productName.getText().toString());
+                    player.getCargoList().remove(productName.getText().toString());
+                    String newS = "";
+                    for (int i = 0; i < player.getCargoList().size(); i++) {
+                        newS = newS + player.getCargoList().get(i) + ", ";
+                    }
+                    cargo.setText(newS);
                 }
             }
         });
@@ -100,8 +104,8 @@ public class BuyActivity extends AppCompatActivity {
         ImageButton backBuy = findViewById(R.id.backButtonBuy);
         backBuy.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(BuyActivity.this, MarketActivity.class));
-                Intent intent = new Intent(BuyActivity.this, MarketActivity.class);
+                startActivity(new Intent(SellActivity.this, MarketActivity.class));
+                Intent intent = new Intent(SellActivity.this, MarketActivity.class);
                 intent.putExtra("Player", st);
                 startActivity(intent);
             }
