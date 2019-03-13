@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Difficulty;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
@@ -111,7 +114,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 
                 if ((check == 16) && (playerName.getText() != null)) {
                     //instantiated a user!
-                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints);
+                    List<String> aList = new ArrayList<>();
+                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, aList);
 
                     startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
                     Intent intent = new Intent(ConfigurationActivity.this, WelcomeActivity.class);
@@ -121,6 +125,7 @@ public class ConfigurationActivity extends AppCompatActivity {
                     intent.putExtra("Fighter", spaceTrader.getFighterPoints().toString());
                     intent.putExtra("Trader",spaceTrader.getTraderPoints().toString());
                     intent.putExtra("Engineer", spaceTrader.getEngineerPoints().toString());
+                    intent.putExtra("Player", spaceTrader);
                     startActivity(intent);
                 } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(ConfigurationActivity.this).create();
