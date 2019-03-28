@@ -75,8 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/saveGame"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-4dp"
-        android:layout_marginBottom="211dp"
+        android:layout_marginEnd="-6dp"
+        android:layout_marginBottom="237dp"
         android:text="START OVER" />
 
     <TextView
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="199dp"
         android:text="PLAYER INFO"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
@@ -93,16 +93,15 @@
 
     <TextView
         android:id="@+id/information"
-        android:layout_width="311dp"
-        android:layout_height="107dp"
+        android:layout_width="317dp"
+        android:layout_height="174dp"
         android:layout_alignStart="@+id/nav"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="-8dp"
-        android:layout_marginBottom="13dp"
-        android:text="To Be Implemented in M8"
+        android:layout_marginStart="-18dp"
+        android:layout_marginBottom="35dp"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="30sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

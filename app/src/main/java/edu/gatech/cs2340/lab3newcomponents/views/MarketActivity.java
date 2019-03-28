@@ -22,6 +22,7 @@ public class MarketActivity extends AppCompatActivity {
         setContentView(R.layout.market_activity);
 
         final Serializable st = getIntent().getSerializableExtra("Player");
+        final Serializable pt = getIntent().getSerializableExtra("Planet");
 
         Button backButton = findViewById(R.id.button4);
         Button buyButton = findViewById(R.id.button2);
@@ -33,6 +34,7 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, PlayActivity.class));
                 Intent intent = new Intent(MarketActivity.this, PlayActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Planet", pt);
                 startActivity(intent);
             }
         });
@@ -43,6 +45,7 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, BuyActivity.class));
                 Intent intent = new Intent(MarketActivity.this, BuyActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Planet", pt);
                 startActivity(intent);
             }
         });
@@ -53,6 +56,7 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, SellActivity.class));
                 Intent intent = new Intent(MarketActivity.this, SellActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Planet", pt);
                 startActivity(intent);
             }
         });

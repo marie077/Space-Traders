@@ -31,6 +31,8 @@ public class BuyActivity extends AppCompatActivity {
 
         final Serializable st = getIntent().getSerializableExtra("Player");
         final Player player = (Player) getIntent().getSerializableExtra("Player");
+        final Serializable pt = getIntent().getSerializableExtra("Planet");
+        Intent ip = getIntent();
 
         final TextView moneyAmt = findViewById(R.id.moneyAmount);
         moneyAmt.setText(String.format("$%d", player.getMoney()));
@@ -46,6 +48,8 @@ public class BuyActivity extends AppCompatActivity {
         int objVal = TradeGoods.WATER.getPrice();
         final List<String> tradePics = Arrays.asList("water", "furs", "food", "ore", "games", "firearms", "medicine", "machines", "narcotics", "robots");
         final TradeGoods trades[] = TradeGoods.values();
+        String planNum = Character.toString(ip.getStringExtra("Planet").charAt(ip.getStringExtra("Planet").length() - 1));
+        final Integer plan = (Integer.parseInt(planNum) + 1);
 
         ImageView product = findViewById(R.id.supply);
         product.setImageResource(getResources().getIdentifier(tradePics.get(0), "drawable", "edu.gatech.cs2340.lab3newcomponents"));
@@ -54,7 +58,7 @@ public class BuyActivity extends AppCompatActivity {
         productName.setText(tradePics.get(0));
 
         final TextView priceObj = findViewById(R.id.price);
-        priceObj.setText(String.format("$%d", trades[0].getPrice()));
+        priceObj.setText(String.format("$%d", trades[0].getPrice() * plan));
 
         ImageButton next = findViewById(R.id.rightButton);
         next.setOnClickListener(new View.OnClickListener() {
@@ -62,12 +66,12 @@ public class BuyActivity extends AppCompatActivity {
             ImageView product = findViewById(R.id.supply);
             TextView productName = findViewById(R.id.supplyName);
             TextView priceObj = findViewById(R.id.price);
-            final List<String> tradePics = Arrays.asList("water", "furs", "food", "ore", "games", "firearms", "medicine", "machines", "narcotics", "robots");
+            final List<String> tradePics = Arrays.asList("water", "furs", "food", "fuel", "games", "firearms", "medicine", "machines", "narcotics", "robots");
             public void onClick(View v) {
                 j = j + 1;
                 product.setImageResource(getResources().getIdentifier(tradePics.get((j) % tradePics.size()), "drawable", "edu.gatech.cs2340.lab3newcomponents"));
                 productName.setText(tradePics.get((j) % tradePics.size()));
-                priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice()));
+                priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan));
             }
         });
 
@@ -91,8 +95,13 @@ public class BuyActivity extends AppCompatActivity {
                 } else {
                     player.setMoney(player.getMoney() - Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()));
                     moneyAmt.setText(String.format("$%d", player.getMoney()));
-                    cargo.setText(cargo.getText().toString() + productName.getText().toString() + ", ");
-                    player.getCargoList().add(productName.getText().toString());
+
+                    if (productName.getText().toString() == "fuel") {
+                        player.setFuel(player.getFuel() + 10);
+                    } else {
+                        cargo.setText(cargo.getText().toString() + productName.getText().toString() + ", ");
+                        player.getCargoList().add(productName.getText().toString());
+                    }
                 }
             }
         });
@@ -103,6 +112,7 @@ public class BuyActivity extends AppCompatActivity {
                 startActivity(new Intent(BuyActivity.this, MarketActivity.class));
                 Intent intent = new Intent(BuyActivity.this, MarketActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Planet", pt);
                 startActivity(intent);
             }
         });
