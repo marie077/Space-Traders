@@ -115,7 +115,7 @@ public class ConfigurationActivity extends AppCompatActivity {
                 if ((check == 16) && (playerName.getText() != null)) {
                     //instantiated a user!
                     List<String> aList = new ArrayList<>();
-                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, aList);
+                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, aList, 50);
 
                     startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
                     Intent intent = new Intent(ConfigurationActivity.this, WelcomeActivity.class);

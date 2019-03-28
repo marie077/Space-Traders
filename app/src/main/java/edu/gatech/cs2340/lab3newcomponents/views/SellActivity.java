@@ -31,6 +31,9 @@ public class SellActivity extends AppCompatActivity {
 
         final Serializable st = getIntent().getSerializableExtra("Player");
         final Player player = (Player) getIntent().getSerializableExtra("Player");
+        Intent ip = getIntent();
+        String planNum = Character.toString(ip.getStringExtra("Planet").charAt(ip.getStringExtra("Planet").length() - 1));
+        final Integer plan = (Integer.parseInt(planNum) + 1);
 
         final TextView moneyAmt = findViewById(R.id.moneyAmount);
         moneyAmt.setText(String.format("$%d", player.getMoney()));
@@ -54,7 +57,7 @@ public class SellActivity extends AppCompatActivity {
         productName.setText(tradePics.get(0));
 
         final TextView priceObj = findViewById(R.id.price);
-        priceObj.setText(String.format("$%d", trades[0].getPrice()));
+        priceObj.setText(String.format("$%d", trades[0].getPrice() * plan));
 
         ImageButton next = findViewById(R.id.rightButton);
         next.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +70,7 @@ public class SellActivity extends AppCompatActivity {
                 j = j + 1;
                 product.setImageResource(getResources().getIdentifier(tradePics.get((j) % tradePics.size()), "drawable", "edu.gatech.cs2340.lab3newcomponents"));
                 productName.setText(tradePics.get((j) % tradePics.size()));
-                priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice()));
+                priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan));
             }
         });
 

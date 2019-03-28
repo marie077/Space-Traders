@@ -49,4 +49,6 @@ public enum TradeGoods {
      * @return the display string representation of the course
      */
     public String toString() { return name; }
+
+
 }
