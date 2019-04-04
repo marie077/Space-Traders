@@ -25,6 +25,7 @@ public class Player implements Serializable {
     private int traderPoints;
     private int engineerPoints;
     private int money;
+    private int fuel;
     public static List<String> cargoList = new ArrayList<>();
 
 
@@ -35,7 +36,7 @@ public class Player implements Serializable {
      *
      * @param nam     name of the student
      */
-    public Player (String nam, Difficulty difficult, int fighter, int pilot, int trader, int engineer, int money, List cargoList) {
+    public Player (String nam, Difficulty difficult, int fighter, int pilot, int trader, int engineer, int money, List cargoList,int fuel) {
         this.name = nam;
         this.difficulty = difficult;
         this.fighterPoints = fighter;
@@ -44,6 +45,7 @@ public class Player implements Serializable {
         this.engineerPoints = engineer;
         this.money = money;
         this.cargoList = cargoList;
+        this.fuel = fuel;
     }
 
 
@@ -119,6 +121,10 @@ public class Player implements Serializable {
     public List getCargoList() {return cargoList;}
 
     public void setCargoList(List c) {cargoList = c;}
+
+    public Integer getFuel() {return fuel;}
+
+    public void setFuel(int fl) {fuel = fl;}
 
     @Override
     public String toString() {
