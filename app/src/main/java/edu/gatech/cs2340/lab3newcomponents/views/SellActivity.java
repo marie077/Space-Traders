@@ -30,6 +30,7 @@ public class SellActivity extends AppCompatActivity {
         setContentView(R.layout.buy_screen_main);
 
         final Serializable st = getIntent().getSerializableExtra("Player");
+        final Serializable pt = getIntent().getSerializableExtra("Planet");
         final Player player = (Player) getIntent().getSerializableExtra("Player");
         Intent ip = getIntent();
         String planNum = Character.toString(ip.getStringExtra("Planet").charAt(ip.getStringExtra("Planet").length() - 1));
@@ -110,6 +111,7 @@ public class SellActivity extends AppCompatActivity {
                 startActivity(new Intent(SellActivity.this, MarketActivity.class));
                 Intent intent = new Intent(SellActivity.this, MarketActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Planet", pt);
                 startActivity(intent);
             }
         });
