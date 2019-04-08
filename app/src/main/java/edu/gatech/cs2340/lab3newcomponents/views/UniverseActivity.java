@@ -62,6 +62,7 @@ public class UniverseActivity extends AppCompatActivity {
 
         final Serializable st = getIntent().getSerializableExtra("Player");
         final Serializable pt = getIntent().getSerializableExtra("Planet");
+        final Serializable c = getIntent().getSerializableExtra("Count");
         final Player player = (Player) getIntent().getSerializableExtra("Player");
         final String plan = (String) getIntent().getSerializableExtra("Planet");
 
@@ -74,6 +75,7 @@ public class UniverseActivity extends AppCompatActivity {
                     Intent intent = new Intent(UniverseActivity.this, PlayActivity.class);
                     intent.putExtra("Player", st);
                     intent.putExtra("Planet", pt);
+                    intent.putExtra("Count", c);
                     //player.setFuel(player.getFuel() - 10);
                     startActivity(intent);
             }
@@ -101,6 +103,7 @@ public class UniverseActivity extends AppCompatActivity {
                     Intent intent = new Intent(UniverseActivity.this, PlayActivity.class);
                     intent.putExtra("Player", st);
                     intent.putExtra("Planet", name.getText());
+                    intent.putExtra("Count", c);
                     player.setFuel(player.getFuel() - 10);
                     startActivity(intent);
                 }

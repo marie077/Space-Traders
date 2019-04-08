@@ -32,6 +32,7 @@ public class BuyActivity extends AppCompatActivity {
         final Serializable st = getIntent().getSerializableExtra("Player");
         final Player player = (Player) getIntent().getSerializableExtra("Player");
         final Serializable pt = getIntent().getSerializableExtra("Planet");
+        final Serializable c = getIntent().getSerializableExtra("Count");
         Intent ip = getIntent();
 
         final TextView moneyAmt = findViewById(R.id.moneyAmount);
@@ -113,6 +114,7 @@ public class BuyActivity extends AppCompatActivity {
                 Intent intent = new Intent(BuyActivity.this, MarketActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Planet", pt);
+                intent.putExtra("Count", c);
                 startActivity(intent);
             }
         });
