@@ -1,9 +1,9 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.List;
 
 
+@SuppressWarnings("ALL")
 public class Planet {
     private String name;
     private TechLevel level;

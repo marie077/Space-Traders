@@ -1,32 +1,24 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Button;
-
-import org.w3c.dom.Text;
-
+import edu.gatech.cs2340.lab3newcomponents.R;
 import java.io.Serializable;
 
-import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
-import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
+@SuppressWarnings("ALL")
 public class PlayActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);

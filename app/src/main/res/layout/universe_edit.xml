@@ -11,17 +11,18 @@
 
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.gatech.cs2340.lab3newcomponents.views.UniverseActivity">
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.UniverseActivity"
+    tools:ignore="Overdraw">
 
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/out"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="-35dp"
-        android:text="BACK" />
+        android:text="BACK"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/planet"
@@ -31,7 +32,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="47dp"
         android:layout_marginTop="143dp"
-        tools:srcCompat="@tools:sample/avatars[5]" />
+        tools:srcCompat="@tools:sample/avatars[5]"
+        android:contentDescription="plnt"
+        tools:ignore="HardcodedText" />
 
     <ImageButton
         android:id="@+id/nextPlanet"
@@ -40,7 +43,9 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="9dp"
-        app:srcCompat="@android:drawable/ic_media_next" />
+        app:srcCompat="@android:drawable/ic_media_next"
+        android:contentDescription="next"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/selectPlanet"
@@ -50,7 +55,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="95dp"
         android:layout_marginBottom="71dp"
-        android:text="Select Planet" />
+        android:text="Select Planet"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/planetName"
@@ -61,5 +67,6 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="58dp"
         android:textColor="@android:color/background_light"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        tools:ignore="RelativeOverlap" />
 </RelativeLayout>

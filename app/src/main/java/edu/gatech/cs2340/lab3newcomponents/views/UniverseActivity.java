@@ -1,29 +1,26 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
-
 import edu.gatech.cs2340.lab3newcomponents.R;
-import edu.gatech.cs2340.lab3newcomponents.entity.Planet;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import edu.gatech.cs2340.lab3newcomponents.entity.Resources;
 import edu.gatech.cs2340.lab3newcomponents.entity.TechLevel;
-import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
+@SuppressWarnings("ALL")
 public class UniverseActivity extends AppCompatActivity {
     private TechLevel tech;
     private Resources resource;
@@ -37,6 +34,7 @@ public class UniverseActivity extends AppCompatActivity {
     private Button submitP;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);
@@ -53,6 +51,7 @@ public class UniverseActivity extends AppCompatActivity {
             int j = 0;
             ImageView planet = findViewById(R.id.planet);
             final List<String> tradePics = Arrays.asList("p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10");
+            @SuppressLint("SetTextI18n")
             public void onClick(View v) {
                 j = j + 1;
                 planet.setImageResource(getResources().getIdentifier(tradePics.get((j) % tradePics.size()), "drawable", "edu.gatech.cs2340.lab3newcomponents"));

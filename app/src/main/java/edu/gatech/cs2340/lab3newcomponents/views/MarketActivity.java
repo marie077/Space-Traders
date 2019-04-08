@@ -6,16 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Button;
-
+import edu.gatech.cs2340.lab3newcomponents.R;
 import java.io.Serializable;
 import java.util.Random;
-
-import edu.gatech.cs2340.lab3newcomponents.R;
-import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
 public class MarketActivity extends AppCompatActivity {
 

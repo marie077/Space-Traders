@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,12 +7,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+import edu.gatech.cs2340.lab3newcomponents.R;
 import java.io.Serializable;
 
-import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 
+@SuppressWarnings("ALL")
 public class SavedGameListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle instance) {

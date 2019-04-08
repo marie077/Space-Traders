@@ -5,6 +5,7 @@ package edu.gatech.cs2340.lab3newcomponents.entity;
  *
  * This class represents the various school codes for registration
  */
+@SuppressWarnings("ALL")
 public enum Difficulty {
     BEGINNER ("Beginner", "Beginner"),
     EASY ("Easy", "Easy"),
@@ -36,11 +37,14 @@ public enum Difficulty {
     public String getName() { return name; }
 
 
-    /**
-     *
-     * @return the abbreviation for the course
-     */
-    public String getCode() { return code; }
+// --Commented out by Inspection START (4/8/2019 6:56 PM):
+//    /**
+//     *
+//     * @return the abbreviation for the course
+//     */
+//    @SuppressWarnings("unused")
+//    public String getCode() { return code; }
+// --Commented out by Inspection STOP (4/8/2019 6:56 PM)
 
     /**
      *

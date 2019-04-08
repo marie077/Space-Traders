@@ -20,7 +20,8 @@
 
     tools:context="edu.gatech.cs2340.lab3newcomponents.views.ConfigurationActivity"
 
-    tools:showIn="@layout/character_edit">
+    tools:showIn="@layout/character_edit"
+    tools:ignore="Overdraw">
 
 
 
@@ -44,7 +45,8 @@
         android:text="Space Traders"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#7FFF00"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/nameTitle"
@@ -54,7 +56,8 @@
         android:layout_marginTop="9dp"
         android:text="Name:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF"/>
+        android:textColor="#FFF"
+        tools:ignore="HardcodedText" />
 
 
     <EditText
@@ -67,7 +70,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFF" />
+        android:textColor="#FFF"
+        tools:ignore="LabelFor,UnusedAttribute"
+        android:autofillHints="" />
 
 
 
@@ -85,7 +90,8 @@
 
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
 
-        android:textColor="#FFF" />
+        android:textColor="#FFF"
+        tools:ignore="HardcodedText" />
 
 
 
@@ -123,7 +129,8 @@
 
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
 
-        android:textColor="#FFF" />
+        android:textColor="#FFF"
+        tools:ignore="HardcodedText" />
 
 
 
@@ -143,7 +150,8 @@
 
         android:textColor="#FFF"
 
-        android:textSize="25dp" />
+        android:textSize="25sp"
+        tools:ignore="HardcodedText" />
 
 
 
@@ -181,7 +189,8 @@
 
         android:textColor="#FFF"
 
-        android:textSize="25dp" />
+        android:textSize="25sp"
+        tools:ignore="HardcodedText" />
 
 
 
@@ -219,7 +228,8 @@
 
         android:textColor="#FFF"
 
-        android:textSize="25dp" />
+        android:textSize="25sp"
+        tools:ignore="HardcodedText" />
 
 
 
@@ -255,7 +265,8 @@
 
         android:textColor="#FFF"
 
-        android:textSize="25dp" />
+        android:textSize="25sp"
+        tools:ignore="HardcodedText" />
 
 
 
@@ -287,11 +298,10 @@
         android:layout_below="@id/fourthSkillSpin"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="55dp"
-        android:onClick="onClick"
         android:text="START GAME"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:visibility="visible"
-        />
+        tools:ignore="HardcodedText" />
 
 
 

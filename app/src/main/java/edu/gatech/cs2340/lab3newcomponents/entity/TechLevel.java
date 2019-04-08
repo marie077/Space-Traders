@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
-import java.util.Random;
-
+@SuppressWarnings("ALL")
 public enum TechLevel {
     PRE_AGRICULTURE ("Pre-Agriculture", "0"),
     AGRICULTURE ("Agriculture", "1"),

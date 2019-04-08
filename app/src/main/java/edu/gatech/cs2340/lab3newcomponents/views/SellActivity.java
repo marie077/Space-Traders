@@ -1,10 +1,9 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,16 +13,15 @@ import android.widget.TextView;
 import android.widget.Button;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import edu.gatech.cs2340.lab3newcomponents.entity.TradeGoods;
-import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
+@SuppressWarnings("ALL")
 public class SellActivity extends AppCompatActivity {
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);
@@ -73,6 +71,7 @@ public class SellActivity extends AppCompatActivity {
             TextView productName = findViewById(R.id.supplyName);
             TextView priceObj = findViewById(R.id.price);
             final List<String> tradePics = Arrays.asList("water", "furs", "food", "fuel", "games", "firearms", "medicine", "machines", "narcotics", "robots");
+            @SuppressLint("DefaultLocale")
             public void onClick(View v) {
                 j = j + 1;
                 product.setImageResource(getResources().getIdentifier(tradePics.get((j) % tradePics.size()), "drawable", "edu.gatech.cs2340.lab3newcomponents"));
@@ -85,6 +84,7 @@ public class SellActivity extends AppCompatActivity {
         buyButton.setText("SELL");
 //        final TextView cargo = findViewById(R.id.cargoSupply);
         buyButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("DefaultLocale")
             public void onClick(View v) {
                 if (!player.getCargoList().contains(productName.getText().toString())) {
                     AlertDialog alertDialog = new AlertDialog.Builder(SellActivity.this).create();
