@@ -15,18 +15,18 @@ public enum TechLevel {
     /** the full string representation of the tech level */
     private final String name;
 
-    /** the representation of the tech level abbrv. */
+    /** the representation of the tech level abbrev. */
     private final String code;
 
     /**
      * Constructor for the enumeration
      *
-     * @param pname   full name of the course
-     * @param pcode   letter code / abbreviation for the course
+     * @param pName   full name of the course
+     * @param pCode   letter code / abbreviation for the course
      */
-    TechLevel(String pname, String pcode) {
-        name = pname;
-        code = pcode;
+    TechLevel(String pName, String pCode) {
+        name = pName;
+        code = pCode;
     }
 
     /**
@@ -48,8 +48,4 @@ public enum TechLevel {
      */
     public String toString() { return name; }
 
-//    public static TechLevel getRandomLevel() {
-//        Random random = new Random();
-//        return values()[random.nextInt(values().length)];
-//    }
 }
