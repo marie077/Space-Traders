@@ -26,6 +26,7 @@ public class MarketActivity extends AppCompatActivity {
 
         final Serializable st = getIntent().getSerializableExtra("Player");
         final Serializable pt = getIntent().getSerializableExtra("Planet");
+        final Serializable c = getIntent().getSerializableExtra("Count");
         final Intent in = getIntent();
 
         Button backButton = findViewById(R.id.button4);
@@ -51,6 +52,7 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, BuyActivity.class));
                 Intent intent = new Intent(MarketActivity.this, BuyActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Count", c);
                 Random rand = new Random();
                 int n = rand.nextInt(10);
                 if (n >= 0 && n <= 5) {
@@ -69,6 +71,7 @@ public class MarketActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                     intent.putExtra("Planet", "Planet 2");
+                    intent.putExtra("Count",c);
                     startActivity(intent);
                 } else {
                     String planNum = Character.toString(in.getStringExtra("Planet").charAt(in.getStringExtra("Planet").length() - 1));
@@ -85,6 +88,7 @@ public class MarketActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                     intent.putExtra("Planet", "Planet " + Integer.toString(x));
+                    intent.putExtra("Count", c);
                     startActivity(intent);
                 }
             }
@@ -96,6 +100,7 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, SellActivity.class));
                 Intent intent = new Intent(MarketActivity.this, SellActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Count", c);
                 Random rand = new Random();
                 int n = rand.nextInt(10);
                 if (n >= 0 && n <= 5) {
@@ -114,6 +119,7 @@ public class MarketActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                     intent.putExtra("Planet", "Planet 2");
+                    intent.putExtra("Count", c);
                     startActivity(intent);
                 } else {
                     String planNum = Character.toString(in.getStringExtra("Planet").charAt(in.getStringExtra("Planet").length() - 1));
@@ -130,6 +136,7 @@ public class MarketActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                     intent.putExtra("Planet", "Planet " + Integer.toString(x));
+                    intent.putExtra("Count", c);
                     startActivity(intent);
                 }
             }
