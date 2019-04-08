@@ -60,6 +60,11 @@ public class WelcomeActivity extends AppCompatActivity {
         final Player player = (Player) getIntent().getSerializableExtra("Player");
         final Serializable pt = getIntent().getSerializableExtra("Planet");
         final Serializable c = getIntent().getSerializableExtra("Count");
+        final Serializable st1 = getIntent().getSerializableExtra("Player1");
+        final Serializable st2 = getIntent().getSerializableExtra("Player2");
+        final Serializable st3 = getIntent().getSerializableExtra("Player3");
+        final Serializable st4 = getIntent().getSerializableExtra("Player4");
+        final Serializable st5 = getIntent().getSerializableExtra("Player5");
 
         name.setText(player.getName());
         difficulty.setText("Difficulty:  " + player.getDifficulty());
@@ -74,6 +79,12 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(WelcomeActivity.this, PlayActivity.class));
                 Intent intent = new Intent(WelcomeActivity.this, PlayActivity.class);
                 intent.putExtra("Player", st);
+                intent.putExtra("Planet", pt);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
                 intent.putExtra("Planet", pt);
                 if (c == null) {
                     intent.putExtra("Count", 0);

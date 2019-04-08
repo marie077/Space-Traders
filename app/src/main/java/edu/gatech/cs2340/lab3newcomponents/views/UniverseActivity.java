@@ -65,6 +65,11 @@ public class UniverseActivity extends AppCompatActivity {
         final Serializable c = getIntent().getSerializableExtra("Count");
         final Player player = (Player) getIntent().getSerializableExtra("Player");
         final String plan = (String) getIntent().getSerializableExtra("Planet");
+        final Serializable st1 = getIntent().getSerializableExtra("Player1");
+        final Serializable st2 = getIntent().getSerializableExtra("Player2");
+        final Serializable st3 = getIntent().getSerializableExtra("Player3");
+        final Serializable st4 = getIntent().getSerializableExtra("Player4");
+        final Serializable st5 = getIntent().getSerializableExtra("Player5");
 
 
         Button backPlay = findViewById(R.id.buttonBack);
@@ -76,6 +81,11 @@ public class UniverseActivity extends AppCompatActivity {
                     intent.putExtra("Player", st);
                     intent.putExtra("Planet", pt);
                     intent.putExtra("Count", c);
+                    intent.putExtra("Player1", st1);
+                    intent.putExtra("Player2", st2);
+                    intent.putExtra("Player3", st3);
+                    intent.putExtra("Player4", st4);
+                    intent.putExtra("Player5", st5);
                     //player.setFuel(player.getFuel() - 10);
                     startActivity(intent);
             }
@@ -104,6 +114,11 @@ public class UniverseActivity extends AppCompatActivity {
                     intent.putExtra("Player", st);
                     intent.putExtra("Planet", name.getText());
                     intent.putExtra("Count", c);
+                    intent.putExtra("Player1", st1);
+                    intent.putExtra("Player2", st2);
+                    intent.putExtra("Player3", st3);
+                    intent.putExtra("Player4", st4);
+                    intent.putExtra("Player5", st5);
                     player.setFuel(player.getFuel() - 10);
                     startActivity(intent);
                 }

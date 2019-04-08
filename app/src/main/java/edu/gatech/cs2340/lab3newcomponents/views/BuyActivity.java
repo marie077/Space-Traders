@@ -33,17 +33,22 @@ public class BuyActivity extends AppCompatActivity {
         final Player player = (Player) getIntent().getSerializableExtra("Player");
         final Serializable pt = getIntent().getSerializableExtra("Planet");
         final Serializable c = getIntent().getSerializableExtra("Count");
+        final Serializable st1 = getIntent().getSerializableExtra("Player1");
+        final Serializable st2 = getIntent().getSerializableExtra("Player2");
+        final Serializable st3 = getIntent().getSerializableExtra("Player3");
+        final Serializable st4 = getIntent().getSerializableExtra("Player4");
+        final Serializable st5 = getIntent().getSerializableExtra("Player5");
         Intent ip = getIntent();
 
         final TextView moneyAmt = findViewById(R.id.moneyAmount);
         moneyAmt.setText(String.format("$%d", player.getMoney()));
 
         final TextView cargo = findViewById(R.id.cargoSupply);
-        String newS = "";
-        for (int i = 0; i < player.getCargoList().size(); i++) {
-            newS = newS + player.getCargoList().get(i) + ", ";
-        }
-        cargo.setText(newS);
+//        String newS = "";
+//        for (int i = 0; i < player.getCargoList().size(); i++) {
+//            newS = newS + player.getCargoList().get(i) + ", ";
+//        }
+        cargo.setText(player.getCargoList());
 
         int i = 0;
         int objVal = TradeGoods.WATER.getPrice();
@@ -81,7 +86,8 @@ public class BuyActivity extends AppCompatActivity {
 //        final TextView cargo = findViewById(R.id.cargoSupply);
         buyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()) > player.getMoney() || player.getCargoList().size() > 4) {
+                List<String> items = Arrays.asList(player.getCargoList().split("\\s*,\\s*"));
+                if (Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()) > player.getMoney() || items.size() > 4) {
                     AlertDialog alertDialog = new AlertDialog.Builder(BuyActivity.this).create();
                     alertDialog.setTitle("Alert");
                     alertDialog.setMessage("You don't have enough money or cargo space. Try again!");
@@ -101,7 +107,7 @@ public class BuyActivity extends AppCompatActivity {
                         player.setFuel(player.getFuel() + 10);
                     } else {
                         cargo.setText(cargo.getText().toString() + productName.getText().toString() + ", ");
-                        player.getCargoList().add(productName.getText().toString());
+                        player.setCargoList(cargo.getText().toString());
                     }
                 }
             }
@@ -114,6 +120,11 @@ public class BuyActivity extends AppCompatActivity {
                 Intent intent = new Intent(BuyActivity.this, MarketActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Planet", pt);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
                 intent.putExtra("Count", c);
                 startActivity(intent);
             }

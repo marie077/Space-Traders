@@ -163,6 +163,11 @@ public class PlayActivity extends AppCompatActivity {
                 Intent intent = new Intent(PlayActivity.this, MarketActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Planet", pt);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
                 intent.putExtra("Count", c);
                 startActivity(intent);
             }
@@ -188,6 +193,11 @@ public class PlayActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlayActivity.this, UniverseActivity.class);
                     intent.putExtra("Player", st);
                     intent.putExtra("Planet", pt);
+                    intent.putExtra("Player1", st1);
+                    intent.putExtra("Player2", st2);
+                    intent.putExtra("Player3", st3);
+                    intent.putExtra("Player4", st4);
+                    intent.putExtra("Player5", st5);
                     intent.putExtra("Count", c);
                     startActivity(intent);
                 }
