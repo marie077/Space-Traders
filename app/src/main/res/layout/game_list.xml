@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.SavedGameListActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Your Saved Games"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#7FFF00"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/gameOne"
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:text="NO GAME" />
+
+    <Button
+        android:id="@+id/gameTwo"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameOne"
+        android:layout_centerHorizontal="true"
+        android:text="NO GAME" />
+    <Button
+        android:id="@+id/gameThree"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameTwo"
+        android:layout_centerHorizontal="true"
+        android:text="NO GAME" />
+    <Button
+        android:id="@+id/gameFour"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameThree"
+        android:layout_centerHorizontal="true"
+        android:text="NO GAME" />
+    <Button
+        android:id="@+id/gameFive"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameFour"
+        android:layout_centerHorizontal="true"
+        android:text="NO GAME" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameFive"
+        android:layout_marginTop="151dp"
+        android:layout_centerHorizontal="true"
+        android:text="BACK" />
+</RelativeLayout>
