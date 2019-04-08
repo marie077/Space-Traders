@@ -39,8 +39,9 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, PlayActivity.class));
                 Intent intent = new Intent(MarketActivity.this, PlayActivity.class);
                 intent.putExtra("Player", st);
-                intent.putExtra("Planet", pt);
-                intent.putExtra("Count", c);
+                String planNum = Character.toString(in.getStringExtra("Planet").charAt(in.getStringExtra("Planet").length() - 1));
+                int x = Integer.parseInt(planNum) % 10;
+                intent.putExtra("Planet", "Planet " + Integer.toString(x));
                 startActivity(intent);
             }
         });
@@ -77,7 +78,7 @@ public class MarketActivity extends AppCompatActivity {
                     int x = Integer.parseInt(planNum) * 2;
                     AlertDialog alertDialog = new AlertDialog.Builder(MarketActivity.this).create();
                     alertDialog.setTitle("Alert");
-                    alertDialog.setMessage("An alien has intercepted your travels and has doubled the prices and moved you to a random planet.");
+                    alertDialog.setMessage("An alien has intercepted your travels and has moved you to a random planet.");
 
                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                             new DialogInterface.OnClickListener() {
@@ -125,7 +126,7 @@ public class MarketActivity extends AppCompatActivity {
                     int x = Integer.parseInt(planNum) * 2;
                     AlertDialog alertDialog = new AlertDialog.Builder(MarketActivity.this).create();
                     alertDialog.setTitle("Alert");
-                    alertDialog.setMessage("An alien has intercepted your travels and has doubled the prices and moved you to a random planet.");
+                    alertDialog.setMessage("An alien has intercepted your travels and has moved you to a random planet.");
 
                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                             new DialogInterface.OnClickListener() {
