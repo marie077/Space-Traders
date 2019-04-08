@@ -26,6 +26,11 @@ public class MarketActivity extends AppCompatActivity {
 
         final Serializable st = getIntent().getSerializableExtra("Player");
         final Serializable pt = getIntent().getSerializableExtra("Planet");
+        final Serializable st1 = getIntent().getSerializableExtra("Player1");
+        final Serializable st2 = getIntent().getSerializableExtra("Player2");
+        final Serializable st3 = getIntent().getSerializableExtra("Player3");
+        final Serializable st4 = getIntent().getSerializableExtra("Player4");
+        final Serializable st5 = getIntent().getSerializableExtra("Player5");
         final Serializable c = getIntent().getSerializableExtra("Count");
         final Intent in = getIntent();
 
@@ -38,7 +43,13 @@ public class MarketActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(MarketActivity.this, PlayActivity.class));
                 Intent intent = new Intent(MarketActivity.this, PlayActivity.class);
+                intent.putExtra("Count",c);
                 intent.putExtra("Player", st);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
                 String planNum = Character.toString(in.getStringExtra("Planet").charAt(in.getStringExtra("Planet").length() - 1));
                 int x = Integer.parseInt(planNum) % 10;
                 intent.putExtra("Planet", "Planet " + Integer.toString(x));
@@ -53,6 +64,11 @@ public class MarketActivity extends AppCompatActivity {
                 Intent intent = new Intent(MarketActivity.this, BuyActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Count", c);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
                 Random rand = new Random();
                 int n = rand.nextInt(10);
                 if (n >= 0 && n <= 5) {
@@ -101,6 +117,11 @@ public class MarketActivity extends AppCompatActivity {
                 Intent intent = new Intent(MarketActivity.this, SellActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Count", c);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
                 Random rand = new Random();
                 int n = rand.nextInt(10);
                 if (n >= 0 && n <= 5) {

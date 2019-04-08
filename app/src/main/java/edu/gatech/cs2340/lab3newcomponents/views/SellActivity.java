@@ -33,6 +33,11 @@ public class SellActivity extends AppCompatActivity {
         final Serializable pt = getIntent().getSerializableExtra("Planet");
         final Serializable c =  getIntent().getSerializableExtra("Count");
         final Player player = (Player) getIntent().getSerializableExtra("Player");
+        final Serializable st1 = getIntent().getSerializableExtra("Player1");
+        final Serializable st2 = getIntent().getSerializableExtra("Player2");
+        final Serializable st3 = getIntent().getSerializableExtra("Player3");
+        final Serializable st4 = getIntent().getSerializableExtra("Player4");
+        final Serializable st5 = getIntent().getSerializableExtra("Player5");
         Intent ip = getIntent();
         String planNum = Character.toString(ip.getStringExtra("Planet").charAt(ip.getStringExtra("Planet").length() - 1));
         final Integer plan = (Integer.parseInt(planNum) + 1);
@@ -41,11 +46,11 @@ public class SellActivity extends AppCompatActivity {
         moneyAmt.setText(String.format("$%d", player.getMoney()));
 
         final TextView cargo = findViewById(R.id.cargoSupply);
-        String newS = "";
-        for (int i = 0; i < player.getCargoList().size(); i++) {
-            newS = newS + player.getCargoList().get(i) + ", ";
-        }
-        cargo.setText(newS);
+//        String newS = "";
+//        for (int i = 0; i < player.getCargoList().size(); i++) {
+//            newS = newS + player.getCargoList().get(i) + ", ";
+//        }
+        cargo.setText(player.getCargoList());
 
         int i = 0;
         int objVal = TradeGoods.WATER.getPrice();
@@ -67,7 +72,7 @@ public class SellActivity extends AppCompatActivity {
             ImageView product = findViewById(R.id.supply);
             TextView productName = findViewById(R.id.supplyName);
             TextView priceObj = findViewById(R.id.price);
-            final List<String> tradePics = Arrays.asList("water", "furs", "food", "ore", "games", "firearms", "medicine", "machines", "narcotics", "robots");
+            final List<String> tradePics = Arrays.asList("water", "furs", "food", "fuel", "games", "firearms", "medicine", "machines", "narcotics", "robots");
             public void onClick(View v) {
                 j = j + 1;
                 product.setImageResource(getResources().getIdentifier(tradePics.get((j) % tradePics.size()), "drawable", "edu.gatech.cs2340.lab3newcomponents"));
@@ -96,12 +101,13 @@ public class SellActivity extends AppCompatActivity {
                 } else {
                     player.setMoney(player.getMoney() + Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()));
                     moneyAmt.setText(String.format("$%d", player.getMoney()));
-                    player.getCargoList().remove(productName.getText().toString());
+                    List<String> items = Arrays.asList(player.getCargoList().split("\\s*,\\s*"));
+                    items.remove(productName.getText().toString());
                     String newS = "";
-                    for (int i = 0; i < player.getCargoList().size(); i++) {
-                        newS = newS + player.getCargoList().get(i) + ", ";
+                    for (int i = 0; i < items.size(); i++) {
+                        newS = newS + items.get(i) + ", ";
                     }
-                    cargo.setText(newS);
+                    player.setCargoList(newS);
                 }
             }
         });
@@ -114,6 +120,11 @@ public class SellActivity extends AppCompatActivity {
                 intent.putExtra("Player", st);
                 intent.putExtra("Planet", pt);
                 intent.putExtra("Count", c);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
                 startActivity(intent);
             }
         });
