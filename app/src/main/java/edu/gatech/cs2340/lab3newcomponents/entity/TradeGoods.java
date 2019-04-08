@@ -18,18 +18,18 @@ public enum TradeGoods {
     /** the full string representation of the tech level */
     private final String name;
 
-    /** the representation of the tech level abbrv. */
+    /** the representation of the tech level abbrev. */
     private final Integer price;
 
     /**
      * Constructor for the enumeration
      *
-     * @param pname   full name of the course
-     * @param pprice   letter code / abbreviation for the course
+     * @param pName   full name of the course
+     * @param pPrice   letter code / abbreviation for the course
      */
-    TradeGoods(String pname, Integer pprice) {
-        name = pname;
-        price = pprice;
+    TradeGoods(String pName, Integer pPrice) {
+        name = pName;
+        price = pPrice;
     }
 
     /**
