@@ -21,18 +21,18 @@ public enum Resources {
     /** the full string representation of the resource */
     private final String resource;
 
-    /** the representation of the resource abbrv. */
-    private final String rcode;
+    /** the representation of the resource abbrev. */
+    private final String rCode;
 
     /**
      * Constructor for the enumeration
      *
-     * @param pname   full name of the course
-     * @param pcode   letter code / abbreviation for the course
+     * @param pName   full name of the course
+     * @param pCode   letter code / abbreviation for the course
      */
-    Resources(String pname, String pcode) {
-        resource = pname;
-        rcode = pcode;
+    Resources(String pName, String pCode) {
+        resource = pName;
+        rCode = pCode;
     }
 
     /**
@@ -46,7 +46,7 @@ public enum Resources {
      *
      * @return the abbreviation for the course
      */
-    public String getCode() { return rcode; }
+    public String getCode() { return rCode; }
 
     /**
      *
