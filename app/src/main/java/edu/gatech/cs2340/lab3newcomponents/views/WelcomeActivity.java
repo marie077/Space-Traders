@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,13 +9,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
-
+import edu.gatech.cs2340.lab3newcomponents.R;
 import java.io.Serializable;
 
-import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
-import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
+@SuppressWarnings("ALL")
 public class WelcomeActivity extends AppCompatActivity {
 
     private TextView name;
@@ -31,6 +31,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private ImageView alien;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);

@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
-import java.util.Random;
-
+@SuppressWarnings("ALL")
 public enum Resources {
 
     NO_SPECIAL_RESOURCES ("NoSpecialResources", "0"),

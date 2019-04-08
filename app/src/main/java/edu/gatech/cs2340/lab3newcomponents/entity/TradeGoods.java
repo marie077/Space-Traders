@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
+@SuppressWarnings("ALL")
 public enum TradeGoods {
     WATER ("Water", 30),
     FURS ("Furs", 250),

@@ -9,7 +9,10 @@
     android:background="#180080"
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.gatech.cs2340.lab3newcomponents.views.UniverseActivity">
+
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.UniverseActivity"
+    tools:ignore="Overdraw">
+
     <Button
         android:id="@+id/button2"
         android:layout_width="231dp"
@@ -22,7 +25,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@android:color/white"
         tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="116dp" />
+        tools:layout_editor_absoluteY="116dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/button3"
@@ -36,7 +40,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@android:color/white"
         tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="229dp" />
+        tools:layout_editor_absoluteY="229dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/button4"
@@ -48,7 +53,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@android:color/white"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -59,7 +65,9 @@
         android:layout_marginBottom="25dp"
         app:srcCompat="@drawable/ic_launcher_background"
         tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="343dp" />
+        tools:layout_editor_absoluteY="343dp"
+        android:contentDescription="img"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -69,6 +77,8 @@
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/spaceship"
         tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="352dp" />
+        tools:layout_editor_absoluteY="352dp"
+        android:contentDescription="img2"
+        tools:ignore="HardcodedText" />
 </RelativeLayout>
 

@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+@SuppressWarnings("ALL")
 public class Universe {
     private TechLevel tech;
     private Resources resource;
@@ -53,6 +54,7 @@ public class Universe {
         int i = 0;
         while (i < 10) {
             solarSystem[i] = new SolarSystem(planetObj[i]);
+            i++;
         }
         return solarSystem;
     }
