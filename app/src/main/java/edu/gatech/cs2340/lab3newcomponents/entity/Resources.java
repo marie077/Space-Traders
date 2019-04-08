@@ -4,17 +4,17 @@ import java.util.Random;
 
 public enum Resources {
 
-    NOSPECIALRESOURCES ("NoSpecialResources", "0"),
-    MINERALRICH ("MineralRich", "1"),
-    MINERALPOOR ("MineralPoor", "2"),
+    NO_SPECIAL_RESOURCES ("NoSpecialResources", "0"),
+    MINERAL_RICH ("MineralRich", "1"),
+    MINERAL_POOR ("MineralPoor", "2"),
     DESERT ("Desert", "3"),
-    LOTSOFWATER ("LotsOfWater", "4"),
-    RICHSOIL ("RichSoil", "5"),
-    POORSOIL ("PoorSoil", "6"),
+    LOTS_OF_WATER ("LotsOfWater", "4"),
+    RICH_SOIL ("RichSoil", "5"),
+    POOR_SOIL ("PoorSoil", "6"),
     FAUNA ("Fauna", "7"),
     LIFELESS ("Lifeless", "8"),
-    WEIRDMUSHROOMS ("WeirdMushrooms", "9"),
-    LOTSOFHERBS ("LotsOfHerbs", "10"),
+    WEIRD_MUSHROOMS ("WeirdMushrooms", "9"),
+    LOTS_OF_HERBS ("LotsOfHerbs", "10"),
     ARTISTIC ("Artistic", "11"),
     WARLIKE ("Warlike", "12");
 
