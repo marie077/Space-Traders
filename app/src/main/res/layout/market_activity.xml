@@ -10,7 +10,6 @@
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.gatech.cs2340.lab3newcomponents.views.UniverseActivity">
-
     <Button
         android:id="@+id/button2"
         android:layout_width="231dp"
@@ -72,3 +71,4 @@
         tools:layout_editor_absoluteX="111dp"
         tools:layout_editor_absoluteY="352dp" />
 </RelativeLayout>
+
