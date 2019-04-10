@@ -3,35 +3,35 @@ package edu.gatech.cs2340.lab3newcomponents.entity;
 @SuppressWarnings("ALL")
 public enum Resources {
 
-    NOSPECIALRESOURCES ("NoSpecialResources", "0"),
-    MINERALRICH ("MineralRich", "1"),
-    MINERALPOOR ("MineralPoor", "2"),
+    NO_SPECIAL_RESOURCES ("NoSpecialResources", "0"),
+    MINERAL_RICH ("MineralRich", "1"),
+    MINERAL_POOR ("MineralPoor", "2"),
     DESERT ("Desert", "3"),
-    LOTSOFWATER ("LotsOfWater", "4"),
-    RICHSOIL ("RichSoil", "5"),
-    POORSOIL ("PoorSoil", "6"),
+    LOTS_OF_WATER ("LotsOfWater", "4"),
+    RICH_SOIL ("RichSoil", "5"),
+    POOR_SOIL ("PoorSoil", "6"),
     FAUNA ("Fauna", "7"),
     LIFELESS ("Lifeless", "8"),
-    WEIRDMUSHROOMS ("WeirdMushrooms", "9"),
-    LOTSOFHERBS ("LotsOfHerbs", "10"),
+    WEIRD_MUSHROOMS ("WeirdMushrooms", "9"),
+    LOTS_OF_HERBS ("LotsOfHerbs", "10"),
     ARTISTIC ("Artistic", "11"),
     WARLIKE ("Warlike", "12");
 
     /** the full string representation of the resource */
     private final String resource;
 
-    /** the representation of the resource abbrv. */
-    private final String rcode;
+    /** the representation of the resource abbrev. */
+    private final String rCode;
 
     /**
      * Constructor for the enumeration
      *
-     * @param pname   full name of the course
-     * @param pcode   letter code / abbreviation for the course
+     * @param pName   full name of the course
+     * @param pCode   letter code / abbreviation for the course
      */
-    Resources(String pname, String pcode) {
-        resource = pname;
-        rcode = pcode;
+    Resources(String pName, String pCode) {
+        resource = pName;
+        rCode = pCode;
     }
 
     /**
@@ -45,7 +45,7 @@ public enum Resources {
      *
      * @return the abbreviation for the course
      */
-    public String getCode() { return rcode; }
+    public String getCode() { return rCode; }
 
     /**
      *

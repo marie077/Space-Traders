@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
 /**
- * Created by robertwaters on 1/5/17.
+ * Created by robert waters on 1/5/17.
  *
  * This class represents the various school codes for registration
  */
@@ -22,12 +22,12 @@ public enum Difficulty {
     /**
      * Constructor for the enumeration
      *
-     * @param pname   full name of the course
-     * @param pcode   letter code / abbreviation for the course
+     * @param pName   full name of the course
+     * @param pCode   letter code / abbreviation for the course
      */
-    Difficulty(String pname, String pcode) {
-        name = pname;
-        code = pcode;
+    Difficulty(String pName, String pCode) {
+        name = pName;
+        code = pCode;
     }
 
     /**
