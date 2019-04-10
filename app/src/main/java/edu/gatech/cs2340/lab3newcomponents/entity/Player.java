@@ -62,7 +62,7 @@ public class Player implements Serializable {
     public static int findPosition(Integer code) {
         int i = 0;
         while (i < pointList.size()) {
-            if (code.equals(pointList.get(i))) return i;
+            if (code == (pointList.get(i))) return i;
             ++i;
         }
         return 0;
