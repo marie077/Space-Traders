@@ -54,8 +54,5 @@ public enum Resources {
      */
     public String toString() { return resource; }
 
-//    public static Resources getRandomResource() {
-//        Random random = new Random();
-//        return values()[random.nextInt(values().length)];
-//    }
+
 }

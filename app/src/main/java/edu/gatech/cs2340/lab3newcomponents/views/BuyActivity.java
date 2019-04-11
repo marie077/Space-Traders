@@ -44,10 +44,6 @@ public class BuyActivity extends AppCompatActivity {
         moneyAmt.setText(String.format("$%d", player.getMoney()));
 
         final TextView cargo = findViewById(R.id.cargoSupply);
-//        String newS = "";
-//        for (int i = 0; i < player.getCargoList().size(); i++) {
-//            newS = newS + player.getCargoList().get(i) + ", ";
-//        }
         cargo.setText(player.getCargoList());
 
         int i = 0;
@@ -83,7 +79,6 @@ public class BuyActivity extends AppCompatActivity {
 
         Button buyButton = findViewById(R.id.buyButton);
         buyButton.setText("BUY");
-//        final TextView cargo = findViewById(R.id.cargoSupply);
         buyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 List<String> items = Arrays.asList(player.getCargoList().split("\\s*,\\s*"));

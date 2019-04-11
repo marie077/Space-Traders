@@ -46,7 +46,7 @@ public class WelcomeActivity extends AppCompatActivity {
         trader = findViewById(R.id.tradeInput);
         engineer = findViewById(R.id.engInput);
         alien = findViewById(R.id.alienPic);
-        Button universeButton = findViewById(R.id.univbutton);
+        Button universeButton = findViewById(R.id.univButton);
 
 
         Intent in = getIntent();
