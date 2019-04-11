@@ -21,7 +21,7 @@ public enum TechLevel {
      * Constructor for the enumeration
      *
      * @param pName   full name of the course
-     * @param pCode   letter code / abbreviation for the course
+     * @param pCode   letter code / abbreviation for the cour`se
      */
     TechLevel(String pName, String pCode) {
         name = pName;
@@ -46,5 +46,11 @@ public enum TechLevel {
      * @return the display string representation of the course
      */
     public String toString() { return name; }
+
+
+    public boolean techLevelEquals(String name, String code) {
+        return this.name.equals(name) && this.code.equals(code);
+    }
+
 
 }

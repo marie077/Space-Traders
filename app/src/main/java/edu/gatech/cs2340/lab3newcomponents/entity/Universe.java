@@ -59,7 +59,6 @@ public class Universe {
         return solarSystem;
     }
 
-
     public boolean univEquals(Universe universe) {
         return this.name.equals(universe.name) && this.latitude == universe.latitude;
     }
