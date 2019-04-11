@@ -41,7 +41,7 @@ public class Universe {
             t = TechLevel.values()[list2.get(j)];
             r = Resources.values()[list2.get(i)];
             Planet plan = new Planet(n, result, result2, t, r);
-//            //Planet plan = planetObj[i];
+           //Planet plan = planetObj[i];
             i++;
             j--;
             j = Math.abs(j);
