@@ -58,6 +58,8 @@ public class Universe {
     }
 
 
-
+    public boolean univEquals(Universe universe) {
+        return this.name.equals(universe.name) && this.latitude == universe.latitude;
+    }
 
 }
