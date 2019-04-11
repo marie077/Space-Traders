@@ -47,7 +47,12 @@ public enum TechLevel {
      */
     public String toString() { return name; }
 
-
+    /**
+     * Checks if TechLevel enum has correct fields
+     * @param name TechLevel
+     * @param code Value associated with TechLevel
+     * @return boolean
+     */
     public boolean techLevelEquals(String name, String code) {
         return this.name.equals(name) && this.code.equals(code);
     }
