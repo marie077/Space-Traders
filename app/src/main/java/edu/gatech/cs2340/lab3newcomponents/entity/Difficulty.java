@@ -1,10 +1,11 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
 /**
- * Created by robertwaters on 1/5/17.
+ * Created by robert waters on 1/5/17.
  *
  * This class represents the various school codes for registration
  */
+@SuppressWarnings("ALL")
 public enum Difficulty {
     BEGINNER ("Beginner", "Beginner"),
     EASY ("Easy", "Easy"),
@@ -12,7 +13,6 @@ public enum Difficulty {
     HARD ("Hard", "Hard"),
     IMPOSSIBLE ("Impossible", "Impossible");
 
-//hi this is calista
     /** the full string representation of the course name */
     private final String name;
 
@@ -22,12 +22,12 @@ public enum Difficulty {
     /**
      * Constructor for the enumeration
      *
-     * @param pname   full name of the course
-     * @param pcode   letter code / abbreviation for the course
+     * @param pName   full name of the course
+     * @param pCode   letter code / abbreviation for the course
      */
-    Difficulty(String pname, String pcode) {
-        name = pname;
-        code = pcode;
+    Difficulty(String pName, String pCode) {
+        name = pName;
+        code = pCode;
     }
 
     /**
@@ -37,11 +37,14 @@ public enum Difficulty {
     public String getName() { return name; }
 
 
-    /**
-     *
-     * @return the abbreviation for the course
-     */
-    public String getCode() { return code; }
+// --Commented out by Inspection START (4/8/2019 6:56 PM):
+//    /**
+//     *
+//     * @return the abbreviation for the course
+//     */
+//    @SuppressWarnings("unused")
+//    public String getCode() { return code; }
+// --Commented out by Inspection STOP (4/8/2019 6:56 PM)
 
     /**
      *

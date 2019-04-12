@@ -1,9 +1,9 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.List;
 
 
+@SuppressWarnings("ALL")
 public class Planet {
     private String name;
     private TechLevel level;
@@ -21,7 +21,7 @@ public class Planet {
         this.name = name;
     }
 
-    public int getLatitude(int latitude) {
+    public Integer getLatitude() {
         return this.latitude;
     }
 
@@ -29,7 +29,7 @@ public class Planet {
         this.latitude = latitude;
     }
 
-    public int getLongitude(int longitude) {
+    public Integer getLongitude() {
         return this.longitude;
     }
 
@@ -37,7 +37,7 @@ public class Planet {
         this.longitude = longitude;
     }
 
-    public TechLevel getLevel(TechLevel level) {
+    public TechLevel getLevel() {
         return this.level;
     }
 
@@ -45,7 +45,7 @@ public class Planet {
         this.level = level;
     }
 
-    public Resources getResources(Resources resource) {
+    public Resources getResources() {
         return this.resource;
     }
 
@@ -54,11 +54,16 @@ public class Planet {
     }
 
 
-    public String getName(String name) {
+    public String getName() {
         return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Planet: %s, latitude: %s, longitude: %s, level: %s, resources: %s", name, latitude, longitude, level, resource);
     }
 }
