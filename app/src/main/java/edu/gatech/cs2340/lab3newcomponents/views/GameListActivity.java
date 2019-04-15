@@ -1,14 +1,27 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import edu.gatech.cs2340.lab3newcomponents.R;
 import java.io.Serializable;
+import java.util.Map;
 
 public class GameListActivity extends AppCompatActivity {
-
+    private static final String TAG = "Document status:";
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);
@@ -25,12 +38,15 @@ public class GameListActivity extends AppCompatActivity {
 
         Button newGameButton = findViewById(R.id.newGame);
         Button loadGameButton = findViewById(R.id.loadGame);
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final String uId = user.getUid();
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(GameListActivity.this, ConfigurationActivity.class));
-                Intent intent = new Intent(GameListActivity.this, ConfigurationActivity.class);
+                final Intent intent = new Intent(GameListActivity.this, ConfigurationActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Player1", st1);
                 intent.putExtra("Player2", st2);
@@ -43,15 +59,37 @@ public class GameListActivity extends AppCompatActivity {
                 } else {
                     intent.putExtra("Count", c);
                 }
-                startActivity(intent);
+                if (db.collection("spaceTrader").document(uId).get() == null) {
+                    startActivity(intent);
+                } else {
+                    AlertDialog alertDialog = new AlertDialog.Builder(GameListActivity.this).create();
+                    alertDialog.setTitle("Alert");
+                    alertDialog.setMessage("Game will be overwritten. Would you like to continue?");
+
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "NO",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "YES",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(intent);
+                                }
+                            });
+                    alertDialog.show();
+                }
+
+
             }
         });
 
         loadGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GameListActivity.this, SavedGameListActivity.class));
-                Intent intent = new Intent(GameListActivity.this, SavedGameListActivity.class);
+                startActivity(new Intent(GameListActivity.this, PlayActivity.class));
+                final Intent intent = new Intent(GameListActivity.this, PlayActivity.class);
                 intent.putExtra("Player1", st1);
                 intent.putExtra("Player2", st2);
                 intent.putExtra("Player3", st3);
@@ -63,8 +101,37 @@ public class GameListActivity extends AppCompatActivity {
                 } else {
                     intent.putExtra("Count", c);
                 }
+                db.collection("spaceTrader").document(uId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                Map<String,Object> map = document.getData();
+                                if (map.size() == 0) {
+                                    Log.d(TAG, "Document is empty");
+                                    AlertDialog alertDialog = new AlertDialog.Builder(GameListActivity.this).create();
+                                    alertDialog.setTitle("Alert");
+                                    alertDialog.setMessage("No game to load, create a new game!");
 
-                startActivity(intent);
+                                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                    alertDialog.show();
+                                } else {
+                                    Log.d(TAG, "Document is not empty");
+                                    startActivity(intent);
+                                }
+                            }
+                        }
+                    }
+                });
+
+
+
             }
         });
 
