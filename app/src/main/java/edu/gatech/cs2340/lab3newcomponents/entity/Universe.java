@@ -10,16 +10,18 @@ public class Universe {
     private int latitude;
     private int longitude;
     private String name;
+    private Politics politics;
     private Planet[] planetObj = new Planet[10];
     private SolarSystem[] solarSystem = new SolarSystem[10];
     //private static List<String> planets = Arrays.asList("Acamar", "Brax", "Carzon", "Davlos", "Exo", "Frolix", "Iodine", "Jason", "Kaylon", "Malcoria");
 
-    public Universe(TechLevel tech, Resources resource, Integer latitude, Integer longitude, String name) {
+    public Universe(TechLevel tech, Resources resource, Integer latitude, Integer longitude, String name, Politics politics) {
         this.tech = tech;
         this.resource = resource;
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
+        this.politics = politics;
     }
     public String createPlanets() {
         int i = 0;
@@ -29,6 +31,7 @@ public class Universe {
         String n = "";
         TechLevel t;
         Resources r;
+        Politics p;
         int j = 7;
         while (i < 10) {
             Random rand = new Random();
@@ -40,12 +43,13 @@ public class Universe {
             //list.remove(list.size()-1);
             t = TechLevel.values()[list2.get(j)];
             r = Resources.values()[list2.get(i)];
-            Planet plan = new Planet(n, result, result2, t, r);
+            p = Politics.values()[list2.get(i)];
+            Planet plan = new Planet(n, result, result2, t, r, p);
            //Planet plan = planetObj[i];
             i++;
             j--;
             j = Math.abs(j);
-            planetsOut += "PLANET: Name: " + plan.getName() + "\nLatitude: " + plan.getLatitude().toString() + "\nLongitude: " + plan.getLongitude().toString() + "\nLevel: " + plan.getLevel().toString() + "\nResource: " + plan.getResources().toString() + "\n\n";
+            planetsOut += "PLANET: Name: " + plan.getName() + "\nLatitude: " + plan.getLatitude().toString() + "\nLongitude: " + plan.getLongitude().toString() + "\nLevel: " + plan.getLevel().toString() + "\nResource: " + plan.getResources().toString() + "\nPolitics: " + plan.getPolitics().toString() + "\n\n";
         }
         return planetsOut;
     }
