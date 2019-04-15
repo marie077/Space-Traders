@@ -46,7 +46,7 @@ public class PlayActivity extends AppCompatActivity {
         final Button buttonFive = findViewById(R.id.gameFive);
 
         Intent in = getIntent();
-        info.setText("\nPlayer Name: " + player.getName() + "\nPlanet Name: " + in.getStringExtra("Planet") + "\nCargo: " + player.getCargoList() + "\nMoney: " + player.getMoney() + "\nFuel: " + player.getFuel());
+        info.setText("\nPlayer Name: " + player.getName() + "\nPlanet Name: " + in.getStringExtra("Planet") + "\nCargo: " + player.getCargoList() + "\nMoney: " + player.getMoney() + "\nFuel: " + player.getFuel() + "\nTrader: " + player.getTraderPoints() + " Pilot: " + player.getPilotPoints() +" Fighter: " + player.getFighterPoints() + " Engineer: " + player.getEngineerPoints());
 
 //        RelativeLayout container = (RelativeLayout) findViewById(R.layout.game_list);
 //        View view = View.inflate(this, R.layout.play_activity, container);
