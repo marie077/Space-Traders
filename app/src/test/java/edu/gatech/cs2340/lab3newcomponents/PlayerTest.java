@@ -9,6 +9,7 @@ import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import static junit.framework.TestCase.assertEquals;
 
 
+@SuppressWarnings("ALL")
 public class PlayerTest {
     private Player testPlayer;
 
