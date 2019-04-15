@@ -140,10 +140,12 @@ public class ConfigurationActivity extends AppCompatActivity {
                     Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, "", 50);
                     // Write a message to the database
                     // Access a Cloud Firestore instance from your Activity
-
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    db.collection("spaceTrader")
-                            .document(uId).set(spaceTrader);
+                    //if the user document is null, create a new game
+
+                        db.collection("spaceTrader")
+                                .document(uId).set(spaceTrader);
+
 //                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 //                                @Override
 //                                public void onSuccess(DocumentReference documentReference) {
