@@ -8,6 +8,7 @@ import java.util.List;
  * This class represents a single Student in the database. It is an information holder.
  */
 
+@SuppressWarnings("ALL")
 public class Player implements Serializable {
     /** a demonstration of using something other than an enum for holding choices
      *  IRL I would always use an enumeration for this
@@ -23,6 +24,10 @@ public class Player implements Serializable {
     private int pilotPoints;
     private int traderPoints;
     private int engineerPoints;
+    private int money;
+    private int fuel;
+    private String cargoList;
+//    public static List<String> cargoList = new ArrayList<>();
 
 
     public static List<Integer> pointList = Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
@@ -32,13 +37,16 @@ public class Player implements Serializable {
      *
      * @param nam     name of the student
      */
-    public Player (String nam, Difficulty difficult, int fighter, int pilot, int trader, int engineer) {
+    public Player (String nam, Difficulty difficult, int fighter, int pilot, int trader, int engineer, int money, String cargoList,int fuel) {
         this.name = nam;
         this.difficulty = difficult;
         this.fighterPoints = fighter;
         this.pilotPoints = pilot;
         this.traderPoints = trader;
         this.engineerPoints = engineer;
+        this.money = money;
+        this.cargoList = cargoList;
+        this.fuel = fuel;
     }
 
 
@@ -54,7 +62,7 @@ public class Player implements Serializable {
     public static int findPosition(Integer code) {
         int i = 0;
         while (i < pointList.size()) {
-            if (code.equals(pointList.get(i))) return i;
+            if (code == (pointList.get(i))) return i;
             ++i;
         }
         return 0;
@@ -106,6 +114,18 @@ public class Player implements Serializable {
     public Integer getEngineerPoints() {return engineerPoints;}
 
     public void setEngineerPoints(int e) {engineerPoints = e;}
+
+    public Integer getMoney() {return money;}
+
+    public void setMoney(int m) {money = m;}
+
+    public String getCargoList() {return cargoList;}
+
+    public void setCargoList(String c) {cargoList = c;}
+
+    public Integer getFuel() {return fuel;}
+
+    public void setFuel(int fl) {fuel = fl;}
 
     @Override
     public String toString() {

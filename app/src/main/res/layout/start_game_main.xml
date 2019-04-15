@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#000"
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.GameListActivity"
+    tools:ignore="Overdraw">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Space Traders"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#7FFF00"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/newGame"
+        android:layout_width="224dp"
+        android:layout_height="85dp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="207dp"
+        android:text="NEW GAME"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/loadGame"
+        android:layout_width="224dp"
+        android:layout_height="85dp"
+        android:layout_below="@+id/newGame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp"
+        android:text="LOAD GAME"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>

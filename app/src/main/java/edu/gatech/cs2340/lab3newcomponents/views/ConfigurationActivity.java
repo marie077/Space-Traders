@@ -2,7 +2,9 @@ package edu.gatech.cs2340.lab3newcomponents.views;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -12,12 +14,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.Serializable;
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Difficulty;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
-import edu.gatech.cs2340.lab3newcomponents.viewmodels.ConfigurationViewModel;
 
 
+@SuppressWarnings("ALL")
 public class ConfigurationActivity extends AppCompatActivity {
 
 
@@ -49,13 +59,18 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     private Player player;
 
+    MediaPlayer mediaPlayer;
 
+    private final String TAG = "Space Trader Instatiation:";
 
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);
         setContentView(R.layout.character_edit);
 
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.music);
+
+        mediaPlayer.start();
         /*
          * Grab the dialog widgets so we can get info for later
          */
@@ -97,7 +112,13 @@ public class ConfigurationActivity extends AppCompatActivity {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         skillTypeFour.setAdapter(adapter5);
 
-
+        final Serializable st1 = getIntent().getSerializableExtra("Player1");
+        final Serializable st2 = getIntent().getSerializableExtra("Player2");
+        final Serializable st3 = getIntent().getSerializableExtra("Player3");
+        final Serializable st4 = getIntent().getSerializableExtra("Player4");
+        final Serializable st5 = getIntent().getSerializableExtra("Player5");
+        final Serializable pt = getIntent().getSerializableExtra("Planet");
+        final Serializable c = getIntent().getSerializableExtra("Count");
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +132,25 @@ public class ConfigurationActivity extends AppCompatActivity {
 
                 if ((check == 16) && (playerName.getText() != null)) {
                     //instantiated a user!
-                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints);
+                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, "", 50);
+                    // Write a message to the database
+                    // Access a Cloud Firestore instance from your Activity
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("spaceTrader")
+                            .add(spaceTrader)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d(TAG, "DocumentSnapshot added with ID:" + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error adding document", e);
+                                }
+                            });
+
 
                     startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
                     Intent intent = new Intent(ConfigurationActivity.this, WelcomeActivity.class);
@@ -121,6 +160,18 @@ public class ConfigurationActivity extends AppCompatActivity {
                     intent.putExtra("Fighter", spaceTrader.getFighterPoints().toString());
                     intent.putExtra("Trader",spaceTrader.getTraderPoints().toString());
                     intent.putExtra("Engineer", spaceTrader.getEngineerPoints().toString());
+                    intent.putExtra("Player", spaceTrader);
+                    intent.putExtra("Player1", st1);
+                    intent.putExtra("Player2", st2);
+                    intent.putExtra("Player3", st3);
+                    intent.putExtra("Player4", st4);
+                    intent.putExtra("Player5", st5);
+                    intent.putExtra("Planet", pt);
+                    if (c == null) {
+                        intent.putExtra("Count", 0);
+                    } else {
+                        intent.putExtra("Count", c);
+                    }
                     startActivity(intent);
                 } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(ConfigurationActivity.this).create();

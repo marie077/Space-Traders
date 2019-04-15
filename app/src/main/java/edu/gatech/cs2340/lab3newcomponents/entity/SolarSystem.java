@@ -1,10 +1,11 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
+@SuppressWarnings("ALL")
 public class SolarSystem {
     Planet planet;
-    /*
-    constructor for Solar System class.
-    It passes in the planet object and
+    /**
+     * Constructor for Solar System
+     * Planet is passed in
      */
     public SolarSystem(Planet planet) {
         this.planet = planet;
@@ -12,5 +13,4 @@ public class SolarSystem {
     private Planet getPlanet() {
         return planet;
     }
-
 }
