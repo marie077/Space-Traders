@@ -1,10 +1,9 @@
 package edu.gatech.cs2340.lab3newcomponents.views;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,16 +13,15 @@ import android.widget.TextView;
 import android.widget.Button;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
 import edu.gatech.cs2340.lab3newcomponents.entity.TradeGoods;
-import edu.gatech.cs2340.lab3newcomponents.entity.Universe;
 
+@SuppressWarnings("ALL")
 public class BuyActivity extends AppCompatActivity {
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle instance) {
         super.onCreate(instance);
@@ -44,10 +42,6 @@ public class BuyActivity extends AppCompatActivity {
         moneyAmt.setText(String.format("$%d", player.getMoney()));
 
         final TextView cargo = findViewById(R.id.cargoSupply);
-//        String newS = "";
-//        for (int i = 0; i < player.getCargoList().size(); i++) {
-//            newS = newS + player.getCargoList().get(i) + ", ";
-//        }
         cargo.setText(player.getCargoList());
 
         int i = 0;
@@ -83,8 +77,8 @@ public class BuyActivity extends AppCompatActivity {
 
         Button buyButton = findViewById(R.id.buyButton);
         buyButton.setText("BUY");
-//        final TextView cargo = findViewById(R.id.cargoSupply);
         buyButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             public void onClick(View v) {
                 List<String> items = Arrays.asList(player.getCargoList().split("\\s*,\\s*"));
                 if (Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()) > player.getMoney() || items.size() > 4) {

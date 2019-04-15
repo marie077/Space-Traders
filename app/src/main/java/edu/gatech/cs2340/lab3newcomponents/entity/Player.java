@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.lab3newcomponents.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,6 +8,7 @@ import java.util.List;
  * This class represents a single Student in the database. It is an information holder.
  */
 
+@SuppressWarnings("ALL")
 public class Player implements Serializable {
     /** a demonstration of using something other than an enum for holding choices
      *  IRL I would always use an enumeration for this
@@ -62,7 +62,7 @@ public class Player implements Serializable {
     public static int findPosition(Integer code) {
         int i = 0;
         while (i < pointList.size()) {
-            if (code.equals(pointList.get(i))) return i;
+            if (code == (pointList.get(i))) return i;
             ++i;
         }
         return 0;

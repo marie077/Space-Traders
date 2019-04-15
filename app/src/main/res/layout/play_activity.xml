@@ -11,7 +11,8 @@
 
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.gatech.cs2340.lab3newcomponents.views.UniverseActivity">
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.UniverseActivity"
+    tools:ignore="Overdraw">
 
     <ImageButton
         android:id="@+id/market"
@@ -21,7 +22,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@android:color/holo_orange_dark"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[7]" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic[7]"
+        android:contentDescription="mrkt"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView"
@@ -33,7 +36,8 @@
         android:text="MARKETPLACE"
         android:textColor="@android:color/background_light"
         android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <ImageButton
         android:id="@+id/nav"
@@ -45,7 +49,9 @@
         android:layout_marginEnd="0dp"
         android:background="@android:color/holo_purple"
         android:scaleType="fitStart"
-        app:srcCompat="@android:drawable/ic_menu_compass" />
+        app:srcCompat="@android:drawable/ic_menu_compass"
+        android:contentDescription="navi"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView2"
@@ -58,7 +64,8 @@
         android:text="NAVIGATION"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/saveGame"
@@ -67,7 +74,8 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-39dp"
-        android:text="SAVE GAME" />
+        android:text="SAVE GAME"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/startOver"
@@ -76,9 +84,9 @@
         android:layout_alignEnd="@+id/saveGame"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="-6dp"
-        android:onClick="onClick"
         android:layout_marginBottom="237dp"
-        android:text="START OVER" />
+        android:text="START OVER"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/info"
@@ -90,7 +98,8 @@
         android:text="PLAYER INFO"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/information"

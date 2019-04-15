@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="IconExtension">
+        <ignore path="src/main/res/drawable/firearms.png" />
+        <ignore path="src/main/res/drawable/food.png" />
+        <ignore path="src/main/res/drawable/games.png" />
+        <ignore path="src/main/res/drawable/games.png" />
+        <ignore path="src/main/res/drawable/games.png" />
+        <ignore path="src/main/res/drawable/medicine.png" />
+        <ignore path="src/main/res/drawable/narcotics.png" />
+        <ignore path="src/main/res/drawable/water.png" />
+    </issue>
+    <issue id="IconLocation">
+        <ignore path="src/main/res/drawable/backarrow.png" />
+        <ignore path="src/main/res/drawable/firearms.png" />
+        <ignore path="src/main/res/drawable/food.png" />
+        <ignore path="src/main/res/drawable/fuel.png" />
+        <ignore path="src/main/res/drawable/furs.png" />
+        <ignore path="src/main/res/drawable/games.png" />
+        <ignore path="src/main/res/drawable/machines.png" />
+        <ignore path="src/main/res/drawable/medicine.png" />
+        <ignore path="src/main/res/drawable/narcotics.png" />
+        <ignore path="src/main/res/drawable/p1.png" />
+        <ignore path="src/main/res/drawable/p10.png" />
+        <ignore path="src/main/res/drawable/p2.png" />
+        <ignore path="src/main/res/drawable/p3.png" />
+        <ignore path="src/main/res/drawable/p4.png" />
+        <ignore path="src/main/res/drawable/p5.png" />
+        <ignore path="src/main/res/drawable/p6.png" />
+        <ignore path="src/main/res/drawable/p7.png" />
+        <ignore path="src/main/res/drawable/p8.png" />
+        <ignore path="src/main/res/drawable/p9.png" />
+        <ignore path="src/main/res/drawable/robots.png" />
+        <ignore path="src/main/res/drawable/spaceship.png" />
+        <ignore path="src/main/res/drawable/water.png" />
+    </issue>
+</lint>

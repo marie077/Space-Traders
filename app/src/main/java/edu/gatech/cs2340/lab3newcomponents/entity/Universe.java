@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+@SuppressWarnings("ALL")
 public class Universe {
     private TechLevel tech;
     private Resources resource;
@@ -40,7 +41,7 @@ public class Universe {
             t = TechLevel.values()[list2.get(j)];
             r = Resources.values()[list2.get(i)];
             Planet plan = new Planet(n, result, result2, t, r);
-//            //Planet plan = planetObj[i];
+           //Planet plan = planetObj[i];
             i++;
             j--;
             j = Math.abs(j);
@@ -53,10 +54,10 @@ public class Universe {
         int i = 0;
         while (i < 10) {
             solarSystem[i] = new SolarSystem(planetObj[i]);
+            i++;
         }
         return solarSystem;
     }
-
 
     public boolean univEquals(Universe universe) {
         return this.name.equals(universe.name) && this.latitude == universe.latitude;

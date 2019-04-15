@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,15 +13,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.gatech.cs2340.lab3newcomponents.R;
 import edu.gatech.cs2340.lab3newcomponents.entity.Difficulty;
 import edu.gatech.cs2340.lab3newcomponents.entity.Player;
-import edu.gatech.cs2340.lab3newcomponents.viewmodels.ConfigurationViewModel;
 
 
+@SuppressWarnings("ALL")
 public class ConfigurationActivity extends AppCompatActivity {
 
 
