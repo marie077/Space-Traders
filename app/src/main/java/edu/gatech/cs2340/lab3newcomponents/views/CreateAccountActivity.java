@@ -49,7 +49,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 if ((createUserName.getText() != null) && (createPass.getText() != null) && (confirmPass.getText() != null) &&
                         (createPass.getText().toString().equals(confirmPass.getText().toString()))) {
 
-                    Task<AuthResult> task = mAuth.createUserWithEmailAndPassword(createUserName.getText().toString(), createPass.getText().toString())
+                    mAuth.createUserWithEmailAndPassword(createUserName.getText().toString(), createPass.getText().toString())
                             .addOnCompleteListener(CreateAccountActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {

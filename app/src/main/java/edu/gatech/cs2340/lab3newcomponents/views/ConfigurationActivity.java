@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
@@ -130,26 +132,30 @@ public class ConfigurationActivity extends AppCompatActivity {
                 int engineerPoints = Integer.parseInt(skillTypeFour.getSelectedItem().toString());
                 int check = pilotPoints + fighterPoints + traderPoints + engineerPoints;
 
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uId = user.getUid();
+
                 if ((check == 16) && (playerName.getText() != null)) {
                     //instantiated a user!
                     Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, "", 50);
                     // Write a message to the database
                     // Access a Cloud Firestore instance from your Activity
+
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     db.collection("spaceTrader")
-                            .add(spaceTrader)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Log.d(TAG, "DocumentSnapshot added with ID:" + documentReference.getId());
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w(TAG, "Error adding document", e);
-                                }
-                            });
+                            .document(uId).set(spaceTrader);
+//                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                                @Override
+//                                public void onSuccess(DocumentReference documentReference) {
+//                                    Log.d(TAG, "DocumentSnapshot added with ID:" + documentReference.getId());
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    Log.w(TAG, "Error adding document", e);
+//                                }
+//                            });
 
 
                     startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));

@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
+
                                     //if credentials are valid, go to main game screen
                                     startActivity(new Intent(LoginActivity.this, GameListActivity.class));
                                     Intent intent = new Intent(LoginActivity.this, GameListActivity.class);
