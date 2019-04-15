@@ -13,7 +13,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity
-            android:name=".views.GameListActivity"
+            android:name=".views.LoginActivity"
             android:label="lab3NewComponents"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
@@ -80,7 +80,19 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".views.GameListActivity"
+            android:label="lab3NewComponents"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
+        <activity
+            android:name=".views.CreateAccountActivity"
+            android:label="lab3NewComponents"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 

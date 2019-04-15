@@ -42,10 +42,6 @@ public class BuyActivity extends AppCompatActivity {
         moneyAmt.setText(String.format("$%d", player.getMoney()));
 
         final TextView cargo = findViewById(R.id.cargoSupply);
-//        String newS = "";
-//        for (int i = 0; i < player.getCargoList().size(); i++) {
-//            newS = newS + player.getCargoList().get(i) + ", ";
-//        }
         cargo.setText(player.getCargoList());
 
         int i = 0;
@@ -81,7 +77,6 @@ public class BuyActivity extends AppCompatActivity {
 
         Button buyButton = findViewById(R.id.buyButton);
         buyButton.setText("BUY");
-//        final TextView cargo = findViewById(R.id.cargoSupply);
         buyButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             public void onClick(View v) {
@@ -100,6 +95,7 @@ public class BuyActivity extends AppCompatActivity {
                     alertDialog.show();
                 } else {
                     player.setMoney(player.getMoney() - Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()));
+
                     moneyAmt.setText(String.format("$%d", player.getMoney()));
 
                     if (productName.getText().toString() == "fuel") {

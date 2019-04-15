@@ -8,17 +8,19 @@ public class Planet {
     private String name;
     private TechLevel level;
     private Resources resource;
+    private Politics politics;
     private int latitude;
     private int longitude;
     public static List<String> planets = Arrays.asList("Acamar", "Brax", "Carzon", "Davlos",
         "Exo", "Frolix", "Iodine", "Jason", "Kaylon", "Malcoria");
 
-    public Planet(String name, int latitude, int longitude, TechLevel level, Resources resource) {
+    public Planet(String name, int latitude, int longitude, TechLevel level, Resources resource, Politics politics) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.level = level;
         this.resource = resource;
         this.name = name;
+        this.politics = politics;
     }
 
     public Integer getLatitude() {
@@ -53,6 +55,10 @@ public class Planet {
         this.resource = resource;
     }
 
+    public Politics getPolitics() { return this.politics; }
+
+    public void setPolitics(Politics politics) { this.politics = politics; }
+
 
     public String getName() {
         return this.name;
@@ -64,6 +70,6 @@ public class Planet {
 
     @Override
     public String toString() {
-        return String.format("Planet: %s, latitude: %s, longitude: %s, level: %s, resources: %s", name, latitude, longitude, level, resource);
+        return String.format("Planet: %s, latitude: %s, longitude: %s, level: %s, resources: %s, politics: %s", name, latitude, longitude, level, resource, politics);
     }
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "457333585642",
+    "firebase_url": "https://space-traders-e6166.firebaseio.com",
+    "project_id": "space-traders-e6166",
+    "storage_bucket": "space-traders-e6166.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457333585642:android:ccd46af69447e11a",
+        "android_client_info": {
+          "package_name": "edu.gatech.cs2340.lab3newcomponents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457333585642-chl4du7sr33jplq496v5v4lbee5hi7o9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWK7kihS8tHjGsxME5IQroYF_U7bNOUtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457333585642-chl4du7sr33jplq496v5v4lbee5hi7o9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
