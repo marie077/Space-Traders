@@ -4,13 +4,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Serializable;
 import edu.gatech.cs2340.lab3newcomponents.R;
@@ -51,6 +60,8 @@ public class ConfigurationActivity extends AppCompatActivity {
     private Player player;
 
     MediaPlayer mediaPlayer;
+
+    private final String TAG = "Space Trader Instatiation:";
 
     @Override
     protected void onCreate(Bundle instance) {
@@ -122,6 +133,24 @@ public class ConfigurationActivity extends AppCompatActivity {
                 if ((check == 16) && (playerName.getText() != null)) {
                     //instantiated a user!
                     Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, "", 50);
+                    // Write a message to the database
+                    // Access a Cloud Firestore instance from your Activity
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("spaceTrader")
+                            .add(spaceTrader)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d(TAG, "DocumentSnapshot added with ID:" + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error adding document", e);
+                                }
+                            });
+
 
                     startActivity(new Intent(ConfigurationActivity.this, WelcomeActivity.class));
                     Intent intent = new Intent(ConfigurationActivity.this, WelcomeActivity.class);

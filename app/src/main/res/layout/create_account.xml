@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context="edu.gatech.cs2340.lab3newcomponents.views.CreateAccountActivity">
+
+    <TextView
+    android:id="@+id/createTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="Create Account"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+    android:textColor="#7FFF00" />
+
+    <EditText
+        android:id="@+id/createUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp"
+        android:gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#FFF"/>
+
+    <EditText
+        android:id="@+id/createPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createUserName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:textColor="#FFF"/>
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createPassword"
+        android:layout_marginTop="65dp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/createEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:text="Enter Emai Address:"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/createPasswordTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createUserName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="Enter Password"
+        android:textColor="#FFF"/>
+
+    <TextView
+        android:id="@+id/confirmPasswordTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="Confirm Password"
+        android:textColor="#FFF"/>
+
+    <Button
+        android:id="@+id/createButton"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:text="Create Account" />
+
+
+</RelativeLayout>

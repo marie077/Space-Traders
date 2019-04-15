@@ -95,6 +95,7 @@ public class BuyActivity extends AppCompatActivity {
                     alertDialog.show();
                 } else {
                     player.setMoney(player.getMoney() - Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()));
+
                     moneyAmt.setText(String.format("$%d", player.getMoney()));
 
                     if (productName.getText().toString() == "fuel") {
