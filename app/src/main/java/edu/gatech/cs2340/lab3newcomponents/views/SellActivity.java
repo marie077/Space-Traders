@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Button;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import edu.gatech.cs2340.lab3newcomponents.R;
@@ -37,7 +38,7 @@ public class SellActivity extends AppCompatActivity {
         final Serializable st4 = getIntent().getSerializableExtra("Player4");
         final Serializable st5 = getIntent().getSerializableExtra("Player5");
         Intent ip = getIntent();
-        String planNum = Character.toString(ip.getStringExtra("Planet").charAt(ip.getStringExtra("Planet").length() - 1));
+        String planNum = Character.toString(player.getPlanet().charAt(player.getPlanet().length() - 1));
         final Integer plan = (Integer.parseInt(planNum) + 1);
 
         final TextView moneyAmt = findViewById(R.id.moneyAmount);
@@ -101,13 +102,15 @@ public class SellActivity extends AppCompatActivity {
                 } else {
                     player.setMoney(player.getMoney() + Integer.parseInt((priceObj.getText().subSequence(1, priceObj.getText().length())).toString()));
                     moneyAmt.setText(String.format("$%d", player.getMoney()));
-                    List<String> items = Arrays.asList(player.getCargoList().split("\\s*,\\s*"));
+                    ArrayList<String> items = new ArrayList<String>(Arrays.asList(player.getCargoList().split(", ")));//player.getCargoList().split("\\s*,\\s*"));
                     items.remove(productName.getText().toString());
                     String newS = "";
                     for (int i = 0; i < items.size(); i++) {
+                        System.out.println(items.get(i));
                         newS = newS + items.get(i) + ", ";
                     }
                     player.setCargoList(newS);
+                    cargo.setText(player.getCargoList());
                 }
             }
         });

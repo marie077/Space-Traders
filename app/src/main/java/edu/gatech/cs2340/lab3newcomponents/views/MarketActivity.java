@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import edu.gatech.cs2340.lab3newcomponents.R;
+import edu.gatech.cs2340.lab3newcomponents.entity.Player;
+
 import java.io.Serializable;
 import java.util.Random;
 
@@ -57,6 +59,7 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, BuyActivity.class));
                 Intent intent = new Intent(MarketActivity.this, BuyActivity.class);
                 intent.putExtra("Player", st);
+                Player player = (Player) st;
                 intent.putExtra("Count", c);
                 intent.putExtra("Player1", st1);
                 intent.putExtra("Player2", st2);
@@ -67,6 +70,7 @@ public class MarketActivity extends AppCompatActivity {
                 int n = rand.nextInt(10);
                 if (n >= 0 && n <= 5) {
                     intent.putExtra("Planet", pt);
+                    intent.putExtra("Player", st);
                     startActivity(intent);
                 } else if (n == 6 || n == 7) {
                     AlertDialog alertDialog = new AlertDialog.Builder(MarketActivity.this).create();
@@ -84,7 +88,7 @@ public class MarketActivity extends AppCompatActivity {
                     intent.putExtra("Count",c);
                     startActivity(intent);
                 } else {
-                    String planNum = Character.toString(in.getStringExtra("Planet").charAt(in.getStringExtra("Planet").length() - 1));
+                    String planNum = Character.toString(player.getPlanet().charAt(player.getPlanet().length() - 1));
                     int x = Integer.parseInt(planNum) * 2;
                     AlertDialog alertDialog = new AlertDialog.Builder(MarketActivity.this).create();
                     alertDialog.setTitle("Alert");
@@ -110,6 +114,7 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(new Intent(MarketActivity.this, SellActivity.class));
                 Intent intent = new Intent(MarketActivity.this, SellActivity.class);
                 intent.putExtra("Player", st);
+                Player player = (Player) st;
                 intent.putExtra("Count", c);
                 intent.putExtra("Player1", st1);
                 intent.putExtra("Player2", st2);
@@ -137,7 +142,7 @@ public class MarketActivity extends AppCompatActivity {
                     intent.putExtra("Count", c);
                     startActivity(intent);
                 } else {
-                    String planNum = Character.toString(in.getStringExtra("Planet").charAt(in.getStringExtra("Planet").length() - 1));
+                    String planNum = Character.toString(player.getPlanet().charAt(player.getPlanet().length() - 1));
                     int x = Integer.parseInt(planNum) * 2;
                     AlertDialog alertDialog = new AlertDialog.Builder(MarketActivity.this).create();
                     alertDialog.setTitle("Alert");

@@ -60,6 +60,20 @@
         </activity>
 
         <activity
+            android:name=".views.MarketplaceCutSceneActivity"
+            android:label="lab3NewComponents"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".views.NavigationCutSceneActivity"
+            android:label="lab3NewComponents"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
             android:name=".views.BuyActivity"
             android:label="lab3NewComponents"
             android:launchMode="singleTop"

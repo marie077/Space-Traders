@@ -48,7 +48,7 @@ public class BuyActivity extends AppCompatActivity {
         int objVal = TradeGoods.WATER.getPrice();
         final List<String> tradePics = Arrays.asList("water", "furs", "food", "ore", "games", "firearms", "medicine", "machines", "narcotics", "robots");
         final TradeGoods trades[] = TradeGoods.values();
-        String planNum = Character.toString(ip.getStringExtra("Planet").charAt(ip.getStringExtra("Planet").length() - 1));
+        String planNum = Character.toString(player.getPlanet().charAt(player.getPlanet().length() - 1));
         final Integer plan = (Integer.parseInt(planNum) + 1);
 
         ImageView product = findViewById(R.id.supply);
