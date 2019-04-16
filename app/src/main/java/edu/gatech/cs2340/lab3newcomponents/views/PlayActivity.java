@@ -179,8 +179,8 @@ public class PlayActivity extends AppCompatActivity {
         marketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PlayActivity.this, MarketActivity.class));
-                Intent intent = new Intent(PlayActivity.this, MarketActivity.class);
+                startActivity(new Intent(PlayActivity.this, MarketplaceCutSceneActivity.class));
+                Intent intent = new Intent(PlayActivity.this, MarketplaceCutSceneActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Planet", pt);
                 intent.putExtra("Player1", st1);
@@ -209,8 +209,8 @@ public class PlayActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                 } else {
-                    startActivity(new Intent(PlayActivity.this, UniverseMapActivity.class));
-                    Intent intent = new Intent(PlayActivity.this, UniverseMapActivity.class);
+                    startActivity(new Intent(PlayActivity.this, NavigationCutSceneActivity.class));
+                    Intent intent = new Intent(PlayActivity.this, NavigationCutSceneActivity.class);
                     intent.putExtra("Player", st);
                     intent.putExtra("Planet", pt);
                     intent.putExtra("Player1", st1);
