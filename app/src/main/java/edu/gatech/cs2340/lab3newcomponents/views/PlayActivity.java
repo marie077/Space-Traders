@@ -181,8 +181,8 @@ public class PlayActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                 } else {
-                    startActivity(new Intent(PlayActivity.this, UniverseActivity.class));
-                    Intent intent = new Intent(PlayActivity.this, UniverseActivity.class);
+                    startActivity(new Intent(PlayActivity.this, UniverseMapActivity.class));
+                    Intent intent = new Intent(PlayActivity.this, UniverseMapActivity.class);
                     intent.putExtra("Player", st);
                     intent.putExtra("Planet", pt);
                     intent.putExtra("Player1", st1);
