@@ -110,7 +110,8 @@ public class UniverseActivity extends AppCompatActivity {
                 } else {
                     startActivity(new Intent(UniverseActivity.this, PlayActivity.class));
                     Intent intent = new Intent(UniverseActivity.this, PlayActivity.class);
-                    intent.putExtra("Player", st);
+                    player.setPlanet(name.getText().toString());
+                    intent.putExtra("Player", player);
                     intent.putExtra("Planet", name.getText());
                     intent.putExtra("Count", c);
                     intent.putExtra("Player1", st1);

@@ -17,6 +17,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import edu.gatech.cs2340.lab3newcomponents.R;
+import edu.gatech.cs2340.lab3newcomponents.entity.Difficulty;
+import edu.gatech.cs2340.lab3newcomponents.entity.Player;
+
 import java.io.Serializable;
 import java.util.Map;
 
@@ -45,7 +48,7 @@ public class GameListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(GameListActivity.this, ConfigurationActivity.class));
+                //startActivity(new Intent(GameListActivity.this, ConfigurationActivity.class));
                 final Intent intent = new Intent(GameListActivity.this, ConfigurationActivity.class);
                 intent.putExtra("Player", st);
                 intent.putExtra("Player1", st1);
@@ -59,28 +62,63 @@ public class GameListActivity extends AppCompatActivity {
                 } else {
                     intent.putExtra("Count", c);
                 }
-                if (db.collection("spaceTrader").document(uId).get() == null) {
-                    startActivity(intent);
-                } else {
-                    AlertDialog alertDialog = new AlertDialog.Builder(GameListActivity.this).create();
-                    alertDialog.setTitle("Alert");
-                    alertDialog.setMessage("Game will be overwritten. Would you like to continue?");
 
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "NO",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "YES",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    startActivity(intent);
-                                }
-                            });
-                    alertDialog.show();
-                }
+                db.collection("spaceTrader").document(uId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (!document.exists()) {
+                                startActivity(intent);
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(GameListActivity.this);
+                                builder.setMessage("Game will be overwritten. Would you like to continue?")
+                                        .setCancelable(false)
+                                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                dialog.dismiss();
+                                                //Intent intent2 = new Intent(GameListActivity.this, ConfigurationActivity.class);
+                                                startActivity(intent);
+                                            }
+                                        })
+                                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                dialog.cancel();
+                                            }
+                                        });
+                                AlertDialog alert = builder.create();
+                                alert.show();
+                            }
+                        }
+                    }
 
+                });
+
+
+
+
+//                if (db.collection("spaceTrader").document(uId).get() == null) {
+//                    startActivity(intent);
+//                } else {
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(GameListActivity.this);
+//                    builder.setMessage("Game will be overwritten. Would you like to continue?")
+//                            .setCancelable(false)
+//                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    dialog.dismiss();
+//                                    //Intent intent2 = new Intent(GameListActivity.this, ConfigurationActivity.class);
+//                                    startActivity(intent);
+//                                }
+//                            })
+//                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    dialog.cancel();
+//                                }
+//                            });
+//                    AlertDialog alert = builder.create();
+//                    alert.show();
+//
+//                }
 
             }
         });
@@ -88,7 +126,7 @@ public class GameListActivity extends AppCompatActivity {
         loadGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GameListActivity.this, PlayActivity.class));
+                //startActivity(new Intent(GameListActivity.this, PlayActivity.class));
                 final Intent intent = new Intent(GameListActivity.this, PlayActivity.class);
                 intent.putExtra("Player1", st1);
                 intent.putExtra("Player2", st2);
@@ -101,33 +139,43 @@ public class GameListActivity extends AppCompatActivity {
                 } else {
                     intent.putExtra("Count", c);
                 }
+
                 db.collection("spaceTrader").document(uId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                Map<String,Object> map = document.getData();
-                                if (map.size() == 0) {
-                                    Log.d(TAG, "Document is empty");
-                                    AlertDialog alertDialog = new AlertDialog.Builder(GameListActivity.this).create();
-                                    alertDialog.setTitle("Alert");
-                                    alertDialog.setMessage("No game to load, create a new game!");
+                            if (!document.exists()) {
+                                Log.d(TAG, "Document is empty");
+                                AlertDialog alertDialog = new AlertDialog.Builder(GameListActivity.this).create();
+                                alertDialog.setTitle("Alert");
+                                alertDialog.setMessage("No game to load, create a new game!");
 
-                                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                                            new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    dialog.dismiss();
-                                                }
-                                            });
-                                    alertDialog.show();
-                                } else {
-                                    Log.d(TAG, "Document is not empty");
-                                    startActivity(intent);
-                                }
+                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
+                            } else {
+                                Log.d(TAG, "Document is not empty");
+                                String name = (String) document.getData().get("name");
+                                Difficulty difficulty = Difficulty.valueOf((String)document.getData().get("difficulty"));
+                                Integer fighter = Integer.valueOf(((Long) document.getData().get("fighterPoints")).intValue());
+                                Integer trader = Integer.valueOf(((Long) document.getData().get("traderPoints")).intValue());
+                                Integer engineer = Integer.valueOf(((Long) document.getData().get("engineerPoints")).intValue());
+                                Integer pilot = Integer.valueOf(((Long) document.getData().get("pilotPoints")).intValue());
+                                Integer money = Integer.valueOf(((Long) document.getData().get("money")).intValue());
+                                Integer fuel = Integer.valueOf(((Long) document.getData().get("fuel")).intValue());
+                                String cargoList = (String) document.getData().get("cargoList");
+                                String planet = (String) document.getData().get("planet");
+                                intent.putExtra("Player", new Player(name, difficulty, fighter, pilot, engineer, trader, money,cargoList, fuel, planet));
+                                startActivity(intent);
                             }
                         }
                     }
+                    //}
                 });
 
 
