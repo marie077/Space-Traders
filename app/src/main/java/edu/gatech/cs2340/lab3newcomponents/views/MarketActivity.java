@@ -34,6 +34,7 @@ public class MarketActivity extends AppCompatActivity {
         Button backButton = findViewById(R.id.button4);
         Button buyButton = findViewById(R.id.button2);
         Button sellButton = findViewById(R.id.button3);
+        Button hireButton = findViewById(R.id.button5);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +87,8 @@ public class MarketActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                     intent.putExtra("Planet", "Planet 2");
+                    player.setPolitics("Capitalist");
+                    intent.putExtra("Player", player);
                     intent.putExtra("Count",c);
                     startActivity(intent);
                 } else {
@@ -93,7 +96,7 @@ public class MarketActivity extends AppCompatActivity {
                     int x = Integer.parseInt(planNum) * 2;
                     AlertDialog alertDialog = new AlertDialog.Builder(MarketActivity.this).create();
                     alertDialog.setTitle("Alert");
-                    alertDialog.setMessage("An alien has intercepted your travels and has moved you to a random planet.");
+                    alertDialog.setMessage("An alien has intercepted your travels and has stolen 100 dollars!");
 
                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                             new DialogInterface.OnClickListener() {
@@ -102,10 +105,30 @@ public class MarketActivity extends AppCompatActivity {
                                 }
                             });
                     alertDialog.show();
+                    //intent.putExtra("Planet", "Planet " + Integer.toString(x));
+                    player.setMoney(player.getMoney() - 100);
+                    intent.putExtra("Player", player);
                     intent.putExtra("Planet", "Planet " + Integer.toString(x));
                     intent.putExtra("Count", c);
                     startActivity(intent);
                 }
+            }
+        });
+
+        hireButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MarketActivity.this, MercenaryActivity.class));
+                Intent intent = new Intent(MarketActivity.this, MercenaryActivity.class);
+                intent.putExtra("Player", st);
+                Player player = (Player) st;
+                intent.putExtra("Count", c);
+                intent.putExtra("Player1", st1);
+                intent.putExtra("Player2", st2);
+                intent.putExtra("Player3", st3);
+                intent.putExtra("Player4", st4);
+                intent.putExtra("Player5", st5);
+                startActivity(intent);
             }
         });
 

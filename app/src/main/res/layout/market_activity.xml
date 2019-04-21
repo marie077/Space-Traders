@@ -14,6 +14,21 @@
     tools:ignore="Overdraw">
 
     <Button
+        android:id="@+id/button5"
+        android:layout_width="231dp"
+        android:layout_height="74dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+        android:background="@color/colorPrimary"
+        android:text="HIRE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@android:color/white"
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="116dp" />
+
+    <Button
         android:id="@+id/button2"
         android:layout_width="231dp"
         android:layout_height="74dp"

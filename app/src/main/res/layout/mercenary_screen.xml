@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#180080">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="BACK"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <ImageView
+        android:id="@+id/imageViewtrader"
+        android:layout_width="163dp"
+        android:layout_height="420dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        app:srcCompat="@drawable/trader" />
+
+    <ImageView
+        android:id="@+id/imageViewpilot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="190dp"
+        app:srcCompat="@drawable/pilot" />
+
+    <ImageView
+        android:id="@+id/imageViewfighter"
+        android:layout_width="163dp"
+        android:layout_height="420dp"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="340dp"
+        app:srcCompat="@drawable/fighter" />
+
+    <ImageView
+        android:id="@+id/imageViewengineer"
+        android:layout_width="163dp"
+        android:layout_height="420dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="340dp"
+        app:srcCompat="@drawable/engineer" />
+
+    <Button
+        android:id="@+id/traderHire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="330dp"
+        android:background="@color/colorPrimary"
+        android:text="HIRE"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="357dp" />
+
+
+    <Button
+        android:id="@+id/pilotHire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="330dp"
+        android:background="@color/colorPrimary"
+        android:text="HIRE"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="248dp"
+        tools:layout_editor_absoluteY="357dp" />
+
+    <Button
+        android:id="@+id/fighterHire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="600dp"
+        android:background="@color/colorPrimary"
+        android:text="HIRE"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/engineerHire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="600dp"
+        android:background="@color/colorPrimary"
+        android:text="HIRE"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trader ($800)"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="150dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilot ($1000)"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="150dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fighter ($1200)"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="390dp"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="446dp" />
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="390dp"
+        android:text="Engineer ($1200)"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/moneyAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="TextView"
+        android:layout_marginLeft="325dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="295dp"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MERCENARIES"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="80dp"
+        android:textSize="30sp" />
+</RelativeLayout>
+

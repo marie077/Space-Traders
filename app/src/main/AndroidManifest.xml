@@ -115,6 +115,13 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".views.MercenaryActivity"
+            android:label="lab3NewComponents"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
 
 

@@ -109,7 +109,7 @@ public class Player implements Serializable {
         return politics;
     }
 
-    public void setPolitics(String pol) { politics = politics; }
+    public void setPolitics(String pol) { politics = pol; }
 
     public Difficulty getDifficulty() {return difficulty; }
 

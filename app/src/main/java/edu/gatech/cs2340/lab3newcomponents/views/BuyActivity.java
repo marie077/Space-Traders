@@ -58,7 +58,11 @@ public class BuyActivity extends AppCompatActivity {
         productName.setText(tradePics.get(0));
 
         final TextView priceObj = findViewById(R.id.price);
-        priceObj.setText(String.format("$%d", trades[0].getPrice() * plan));
+        if (player.getPolitics().equals("Military") && productName.getText().toString().equals("water")) {
+            priceObj.setText(String.format("$%d", trades[0].getPrice() * plan + 1000));
+        } else {
+            priceObj.setText(String.format("$%d", trades[0].getPrice() * plan));
+        }
 
         ImageButton next = findViewById(R.id.rightButton);
         next.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +77,7 @@ public class BuyActivity extends AppCompatActivity {
                 productName.setText(tradePics.get((j) % tradePics.size()));
                 if (player.getPolitics().equals("Anarchy") && productName.getText().toString().equals("food")) {
                     priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
-                } else if (player.getPolitics().equals("Capitalist") && productName.getText().toString().equals("ore")) {
+                } else if (player.getPolitics().equals("Capitalist") && productName.getText().toString().equals("fuel")) {
                     priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
                 } else if (player.getPolitics().equals("Confederacy") && productName.getText().toString().equals("games")) {
                     priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
