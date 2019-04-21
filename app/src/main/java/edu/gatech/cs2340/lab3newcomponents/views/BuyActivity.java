@@ -71,7 +71,29 @@ public class BuyActivity extends AppCompatActivity {
                 j = j + 1;
                 product.setImageResource(getResources().getIdentifier(tradePics.get((j) % tradePics.size()), "drawable", "edu.gatech.cs2340.lab3newcomponents"));
                 productName.setText(tradePics.get((j) % tradePics.size()));
-                priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan));
+                if (player.getPolitics().equals("Anarchy") && productName.getText().toString().equals("food")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Capitalist") && productName.getText().toString().equals("ore")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Confederacy") && productName.getText().toString().equals("games")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Corporate") && productName.getText().toString().equals("robots")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Cybernetic") && productName.getText().toString().equals("narcotics")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Democracy") && productName.getText().toString().equals("furs")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Fascist") && productName.getText().toString().equals("machines")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Feudal") && productName.getText().toString().equals("firearms")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Military") && productName.getText().toString().equals("water")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else if (player.getPolitics().equals("Monarchy") && productName.getText().toString().equals("medicine")) {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan + 1000));
+                } else {
+                    priceObj.setText(String.format("$%d", trades[j % tradePics.size()].getPrice() * plan));
+                }
             }
         });
 
@@ -125,5 +147,8 @@ public class BuyActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
 }
