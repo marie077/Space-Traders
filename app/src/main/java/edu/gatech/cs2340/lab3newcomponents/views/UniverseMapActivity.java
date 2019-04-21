@@ -56,7 +56,7 @@ public class UniverseMapActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UniverseMapActivity.this, PlayActivity.class));
-                Intent intent = new Intent(UniverseMapActivity.this, PlayActivity.class);
+                final Intent intent = new Intent(UniverseMapActivity.this, PlayActivity.class);
                 player.setPlanet("Planet 1");
                 player.setPolitics("Anarchy");
                 player.setFuel(player.getFuel() - 10);
@@ -73,7 +73,7 @@ public class UniverseMapActivity extends AppCompatActivity {
                         .setCancelable(false)
                         .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
+                                dialog.dismiss();
                             }
                         });
                 AlertDialog alert = builder.create();

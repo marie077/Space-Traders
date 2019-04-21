@@ -171,7 +171,7 @@ public class GameListActivity extends AppCompatActivity {
                                 String cargoList = (String) document.getData().get("cargoList");
                                 String planet = (String) document.getData().get("planet");
                                 String politics = (String) document.getData().get("politics");
-                                intent.putExtra("Player", new Player(name, difficulty, fighter, pilot, engineer, trader, money,cargoList, fuel, planet, politics));
+                                intent.putExtra("Player", new Player(name, difficulty, fighter, pilot, trader, engineer, money,cargoList, fuel, planet, politics));
                                 startActivity(intent);
                             }
                         }
