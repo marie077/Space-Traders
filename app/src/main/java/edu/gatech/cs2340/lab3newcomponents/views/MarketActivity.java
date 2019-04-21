@@ -21,6 +21,7 @@ public class MarketActivity extends AppCompatActivity {
         setContentView(R.layout.market_activity);
 
         final Serializable st = getIntent().getSerializableExtra("Player");
+        final Player player = (Player) st;
         final Serializable pt = getIntent().getSerializableExtra("Planet");
         final Serializable st1 = getIntent().getSerializableExtra("Player1");
         final Serializable st2 = getIntent().getSerializableExtra("Player2");
@@ -46,7 +47,7 @@ public class MarketActivity extends AppCompatActivity {
                 intent.putExtra("Player3", st3);
                 intent.putExtra("Player4", st4);
                 intent.putExtra("Player5", st5);
-                String planNum = Character.toString(in.getStringExtra("Planet").charAt(in.getStringExtra("Planet").length() - 1));
+                String planNum = Character.toString(player.getPlanet().charAt(player.getPlanet().length() - 1));
                 int x = Integer.parseInt(planNum) % 10;
                 intent.putExtra("Planet", "Planet " + Integer.toString(x));
                 startActivity(intent);
