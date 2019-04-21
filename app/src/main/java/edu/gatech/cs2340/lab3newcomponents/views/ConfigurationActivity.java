@@ -137,7 +137,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
                 if ((check == 16) && (playerName.getText() != null)) {
                     //instantiated a user!
-                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, "", 50, "");
+                    Player spaceTrader = new Player(playerName.getText().toString(), (Difficulty) difficultyLevel.getSelectedItem(), fighterPoints, pilotPoints, traderPoints, engineerPoints, 1000, "", 50, "", "");
                     // Write a message to the database
                     // Access a Cloud Firestore instance from your Activity
                     FirebaseFirestore db = FirebaseFirestore.getInstance();

@@ -170,7 +170,8 @@ public class GameListActivity extends AppCompatActivity {
                                 Integer fuel = Integer.valueOf(((Long) document.getData().get("fuel")).intValue());
                                 String cargoList = (String) document.getData().get("cargoList");
                                 String planet = (String) document.getData().get("planet");
-                                intent.putExtra("Player", new Player(name, difficulty, fighter, pilot, engineer, trader, money,cargoList, fuel, planet));
+                                String politics = (String) document.getData().get("politics");
+                                intent.putExtra("Player", new Player(name, difficulty, fighter, pilot, engineer, trader, money,cargoList, fuel, planet, politics));
                                 startActivity(intent);
                             }
                         }
